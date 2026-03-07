@@ -279,17 +279,47 @@ const PlacementInternship = () => {
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
-            <div className="aspect-square w-full max-w-md mx-auto relative flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-blue-600 rounded-full opacity-10 animate-pulse"></div>
-              <div className="relative w-full aspect-video bg-gray-800 rounded-3xl border border-gray-700 shadow-2xl overflow-hidden flex flex-col items-center justify-center">
-                <FaVideo className="text-6xl text-gray-600 mb-4" />
-                <p className="text-gray-400 font-medium">Student Testimonials Video</p>
-                <button className="absolute inset-0 w-full h-full flex items-center justify-center group pointer-events-none">
-                  <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform pointer-events-auto cursor-pointer">
-                    <div className="w-0 h-0 border-t-8 border-b-8 border-l-[14px] border-t-transparent border-b-transparent border-l-white ml-2"></div>
+          <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative h-full">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-blue-600/20 rounded-full blur-3xl opacity-50 animate-pulse"></div>
+
+            <div className="relative w-full h-[400px] bg-gray-800/80 backdrop-blur-xl rounded-[2rem] border border-gray-700 shadow-2xl overflow-hidden flex flex-col p-8 my-auto">
+              <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-700">
+                <div>
+                  <h3 className="text-xl font-bold text-white flex items-center gap-2"><FaStar className="text-amber-400" /> Recent Placements</h3>
+                  <p className="text-gray-400 text-sm">Top Performers from Last Batch</p>
+                </div>
+              </div>
+
+              <div className="relative flex-1">
+                {/* Background faint lines */}
+                <div className="absolute inset-x-0 top-1/4 h-px bg-gray-700/50"></div>
+                <div className="absolute inset-x-0 top-2/4 h-px bg-gray-700/50"></div>
+                <div className="absolute inset-x-0 top-3/4 h-px bg-gray-700/50"></div>
+
+                {/* Floating Offer Cards */}
+                <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="absolute top-4 left-0 w-64 bg-gradient-to-r from-blue-900/40 to-blue-800/40 border border-blue-500/30 rounded-xl p-4 shadow-lg flex items-center gap-4">
+                  <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 font-black text-xl">S</div>
+                  <div>
+                    <p className="font-bold text-gray-200">Software Engineer</p>
+                    <p className="text-xs text-blue-300 font-mono tracking-wider mt-1">₹ 12,00,000 / Yr</p>
                   </div>
-                </button>
+                </motion.div>
+
+                <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="absolute top-28 right-0 w-64 bg-gradient-to-r from-emerald-900/40 to-emerald-800/40 border border-emerald-500/30 rounded-xl p-4 shadow-lg flex items-center gap-4 z-10">
+                  <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center text-emerald-400 font-black text-xl">F</div>
+                  <div>
+                    <p className="font-bold text-gray-200">Frontend Developer</p>
+                    <p className="text-xs text-emerald-300 font-mono tracking-wider mt-1">₹ 10,50,000 / Yr</p>
+                  </div>
+                </motion.div>
+
+                <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }} className="absolute bottom-4 left-10 w-64 bg-gradient-to-r from-purple-900/40 to-purple-800/40 border border-purple-500/30 rounded-xl p-4 shadow-lg flex items-center gap-4">
+                  <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-400 font-black text-xl">A</div>
+                  <div>
+                    <p className="font-bold text-gray-200">Data Analyst</p>
+                    <p className="text-xs text-purple-300 font-mono tracking-wider mt-1">₹ 9,00,000 / Yr</p>
+                  </div>
+                </motion.div>
               </div>
             </div>
           </motion.div>
