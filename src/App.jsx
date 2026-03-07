@@ -21,7 +21,7 @@ import SuccessStoryDetail from "./pages/SuccessStoryDetail";
 import BecomeMentor from "./pages/BecomeMentor";
 import PlacementJobs from "./pages/PlacementJobs";
 import PlacementInternship from "./pages/PlacementInternship";
-import Courses from "./pages/Courses";
+import CoursePage from "./pages/CoursePage";
 import GlobalAdmissions from "./pages/GlobalAdmissions";
 
 function App() {
@@ -49,8 +49,7 @@ function App() {
             <Route path="/become-mentor" element={<BecomeMentor />} />
             <Route path="/placements/jobs" element={<PlacementJobs />} />
             <Route path="/placements/internships" element={<PlacementInternship />} />
-            <Route path="/courses" element={<Courses />} />
-            <Route path="/courses/:courseSlug" element={<Courses />} />
+            <Route path="/courses/:slug" element={<CoursePage />} />
             <Route path="/global-admissions" element={<GlobalAdmissions />} />
             <Route
               path="/success-stories/:slug"
