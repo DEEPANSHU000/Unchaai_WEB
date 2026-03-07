@@ -445,7 +445,7 @@ const fadeUp = {
 };
 
 /* ─── MAIN COMPONENT ─── */
-const CoursePage = () => {
+const CoursePage = ({ onBookTrialClick }) => {
     const { slug } = useParams();
     const course = courseData[slug];
 
@@ -488,7 +488,10 @@ const CoursePage = () => {
                                 <FaStar /> 1-on-1 Mentorship
                             </span>
                         </div>
-                        <button className="bg-white text-gray-800 font-bold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
+                        <button
+                            onClick={onBookTrialClick}
+                            className="bg-white text-gray-800 font-bold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+                        >
                             Book a Free Trial
                         </button>
                     </motion.div>
@@ -632,7 +635,10 @@ const CoursePage = () => {
                         <p className="text-white/80 mb-6">
                             Book a free trial class and experience our teaching style before you enroll.
                         </p>
-                        <button className="bg-white text-gray-800 font-bold px-8 py-3 rounded-full shadow hover:shadow-lg transition-all hover:-translate-y-0.5">
+                        <button
+                            onClick={onBookTrialClick}
+                            className="bg-white text-gray-800 font-bold px-8 py-3 rounded-full shadow hover:shadow-lg transition-all hover:-translate-y-0.5"
+                        >
                             Book a Free Trial
                         </button>
                     </div>
