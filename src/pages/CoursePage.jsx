@@ -624,29 +624,101 @@ const CoursePage = ({ onBookTrialClick }) => {
                                 </div>
                             </div>
                             <div className="md:w-1/2 w-full">
-                                <div className="aspect-square rounded-3xl p-8 bg-white shadow-2xl border border-gray-100 relative overflow-hidden flex items-center justify-center">
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-5`}></div>
-                                    {/* Abstract decorative graphic inside the square */}
-                                    <div className="relative z-10 grid grid-cols-2 gap-4 w-full h-full p-4">
-                                        <div className="bg-gray-100 rounded-2xl"></div>
-                                        <div className={`rounded-2xl bg-gradient-to-br ${course.color} opacity-80`}></div>
-                                        <div className={`rounded-2xl bg-gradient-to-tr ${course.color} opacity-60 col-span-2`}></div>
+                                <div className="aspect-square rounded-[2.5rem] bg-gradient-to-br from-white to-gray-50 shadow-2xl border border-gray-100 relative overflow-hidden flex items-center justify-center p-6 md:p-8 group">
+                                    {/* Animated Gradient Orbs */}
+                                    <div className={`absolute top-0 right-0 w-[120%] h-[120%] bg-gradient-to-br ${course.color} opacity-[0.03] rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 transition-transform duration-700 group-hover:scale-110`}></div>
+                                    <div className={`absolute bottom-0 left-0 w-[80%] h-[80%] bg-gradient-to-tr ${course.color} opacity-[0.05] rounded-full blur-2xl translate-y-1/3 -translate-x-1/3`}></div>
+
+                                    <div className="relative w-full h-full flex flex-col justify-center gap-5 z-10 max-w-sm">
+
+                                        {/* Floating Notification/Action Card */}
+                                        <motion.div
+                                            animate={{ y: [0, -6, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                            className="bg-white/80 backdrop-blur-lg rounded-2xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white flex items-center justify-between w-[90%] mx-auto z-10 hover:bg-white transition-colors cursor-default"
+                                        >
+                                            <div className="flex items-center gap-3">
+                                                <div className={`w-10 h-10 rounded-full flex items-center justify-center ${course.lightColor} shrink-0`}>
+                                                    <sec.icon className="text-lg" />
+                                                </div>
+                                                <div>
+                                                    <div className="text-[11px] font-bold text-gray-800 uppercase tracking-wider">{sec.title}</div>
+                                                    <div className="text-[10px] text-gray-500 mt-0.5 font-medium">Active Module</div>
+                                                </div>
+                                            </div>
+                                            <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:bg-primary-50 transition-colors">
+                                                <FaArrowRight className="text-gray-300 transform -rotate-45 text-xs group-hover:text-primary-500 transition-colors" />
+                                            </div>
+                                        </motion.div>
+
+                                        {/* Main Chart/Progress Card */}
+                                        <motion.div
+                                            animate={{ y: [0, 8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                                            className="bg-white rounded-2xl p-6 shadow-[0_20px_40px_rgb(0,0,0,0.08)] border border-gray-50 w-full md:-ml-6 flex flex-col gap-6 z-20 relative"
+                                        >
+                                            <div className="flex items-center justify-between">
+                                                <div className="text-sm font-bold text-gray-800">Weekly Progress</div>
+                                                <span className="text-xs font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded-md border border-green-100">+12%</span>
+                                            </div>
+
+                                            <div className="flex gap-5 items-center">
+                                                <div className="w-[72px] h-[72px] shrink-0 relative flex items-center justify-center">
+                                                    <svg className="w-[72px] h-[72px] transform -rotate-90">
+                                                        <circle cx="36" cy="36" r="32" stroke="currentColor" strokeWidth="6" fill="transparent" className="text-gray-50" />
+                                                        <motion.circle
+                                                            initial={{ strokeDasharray: "201", strokeDashoffset: "201" }}
+                                                            whileInView={{ strokeDashoffset: "40" }}
+                                                            viewport={{ once: true }}
+                                                            transition={{ duration: 2, ease: "easeOut", delay: 0.5 }}
+                                                            cx="36" cy="36" r="32" stroke="currentColor" strokeWidth="6" fill="transparent"
+                                                            className="text-primary-500"
+                                                            strokeLinecap="round"
+                                                        />
+                                                    </svg>
+                                                    <div className="absolute flex flex-col items-center justify-center">
+                                                        <span className="text-base font-black text-gray-800 leading-none">80</span>
+                                                        <span className="text-[9px] font-bold text-gray-400 leading-none mt-0.5">%</span>
+                                                    </div>
+                                                </div>
+                                                <div className="flex-grow space-y-3.5">
+                                                    <div>
+                                                        <div className="flex justify-between text-[11px] font-semibold text-gray-500 mb-1.5">
+                                                            <span>Lectures</span>
+                                                            <span className="text-gray-800">18/20</span>
+                                                        </div>
+                                                        <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                                                            <motion.div initial={{ width: 0 }} whileInView={{ width: "90%" }} transition={{ duration: 1.5, delay: 0.5 }} className={`h-full bg-gradient-to-r ${course.color}`}></motion.div>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div className="flex justify-between text-[11px] font-semibold text-gray-500 mb-1.5">
+                                                            <span>Practice</span>
+                                                            <span className="text-gray-800">45/60</span>
+                                                        </div>
+                                                        <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                                                            <motion.div initial={{ width: 0 }} whileInView={{ width: "75%" }} transition={{ duration: 1.5, delay: 0.7 }} className={`h-full bg-gradient-to-r ${course.color} opacity-70`}></motion.div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </motion.div>
+
+                                        {/* Floating Elements (Background) */}
+                                        <motion.div
+                                            animate={{ y: [0, -15, 0], rotate: [0, 8, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                                            className="absolute top-6 right-0 w-12 h-12 bg-white rounded-2xl shadow-lg border border-gray-50 flex items-center justify-center z-0"
+                                        >
+                                            <FaStar className="text-yellow-400 text-xl" />
+                                        </motion.div>
+
+                                        <motion.div
+                                            animate={{ y: [0, 10, 0], scale: [1, 1.05, 1] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                                            className="absolute bottom-6 right-6 bg-gray-900 border border-gray-700 text-white text-[10px] font-bold px-3 py-2 rounded-full shadow-2xl z-30 flex items-center gap-2"
+                                        >
+                                            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                                            Live Session
+                                        </motion.div>
+
                                     </div>
-                                    {/* Glassmorphism card overlapping */}
-                                    <motion.div
-                                        animate={{ y: [0, -10, 0] }} transition={{ duration: 4, repeat: Infinity }}
-                                        className="absolute bg-white/80 backdrop-blur-xl p-6 rounded-2xl shadow-xl border border-white bottom-10 -left-6 md:-left-12 right-10"
-                                    >
-                                        <div className="flex gap-4 items-center mb-2">
-                                            <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                                                <FaCheckCircle className="text-green-500" />
-                                            </div>
-                                            <div>
-                                                <div className="h-2 w-20 bg-gray-200 rounded-full mb-2"></div>
-                                                <div className="h-2 w-32 bg-gray-200 rounded-full"></div>
-                                            </div>
-                                        </div>
-                                    </motion.div>
                                 </div>
                             </div>
                         </motion.div>
