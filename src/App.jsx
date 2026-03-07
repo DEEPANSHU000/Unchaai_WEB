@@ -22,7 +22,9 @@ import BecomeMentor from "./pages/BecomeMentor";
 import PlacementJobs from "./pages/PlacementJobs";
 import PlacementInternship from "./pages/PlacementInternship";
 import CoursePage from "./pages/CoursePage";
-import GlobalAdmissions from "./pages/GlobalAdmissions";
+import OverseasAdmissions from "./pages/OverseasAdmissions";
+import CampusIndiaAdmissions from "./pages/CampusIndiaAdmissions";
+import OnlineIndiaAdmissions from "./pages/OnlineIndiaAdmissions";
 
 function App() {
   const [isBookTrialOpen, setIsBookTrialOpen] = useState(false);
@@ -50,7 +52,9 @@ function App() {
             <Route path="/placements/jobs" element={<PlacementJobs />} />
             <Route path="/placements/internships" element={<PlacementInternship />} />
             <Route path="/courses/:slug" element={<CoursePage />} />
-            <Route path="/global-admissions" element={<GlobalAdmissions />} />
+            <Route path="/global-admissions/overseas" element={<OverseasAdmissions />} />
+            <Route path="/global-admissions/campus-india" element={<CampusIndiaAdmissions />} />
+            <Route path="/global-admissions/online-india" element={<OnlineIndiaAdmissions />} />
             <Route
               path="/success-stories/:slug"
               element={<SuccessStoryDetail />}

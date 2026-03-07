@@ -39,7 +39,11 @@ const navItems = [
   },
   {
     name: 'Global Admissions',
-    path: '/global-admissions',
+    dropdown: [
+      { name: 'Overseas Admissions', path: '/global-admissions/overseas' },
+      { name: 'Campus India Admissions', path: '/global-admissions/campus-india' },
+      { name: 'Online India Admissions', path: '/global-admissions/online-india' },
+    ],
   },
   {
     name: 'Explore',
@@ -81,8 +85,8 @@ const MegaMenu = ({ groups, isOpen }) => {
                 onMouseEnter={() => setActiveGroup(g.group)}
                 onClick={() => setActiveGroup(g.group)}
                 className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${activeGroup === g.group
-                    ? 'text-primary-500 bg-white shadow-sm'
-                    : 'text-gray-600 hover:text-primary-500 hover:bg-white'
+                  ? 'text-primary-500 bg-white shadow-sm'
+                  : 'text-gray-600 hover:text-primary-500 hover:bg-white'
                   }`}
               >
                 <span className="flex items-center gap-2">
@@ -221,8 +225,8 @@ const Header = ({ onBookTrialClick }) => {
                     to={item.path}
                     onClick={item.path === '/' ? scrollToTop : undefined}
                     className={`px-4 py-2 font-medium transition-colors whitespace-nowrap ${location.pathname === item.path
-                        ? 'text-primary-500'
-                        : 'text-gray-700 hover:text-primary-500'
+                      ? 'text-primary-500'
+                      : 'text-gray-700 hover:text-primary-500'
                       }`}
                   >
                     {item.name}
@@ -331,8 +335,8 @@ const Header = ({ onBookTrialClick }) => {
                       to={item.path}
                       onClick={item.path === '/' ? scrollToTop : undefined}
                       className={`block px-4 py-3 rounded-lg font-medium transition-colors ${location.pathname === item.path
-                          ? 'bg-primary-50 text-primary-500'
-                          : 'text-gray-700 hover:bg-primary-50 hover:text-primary-500'
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-primary-50 hover:text-primary-500'
                         }`}
                     >
                       {item.name}
