@@ -15,8 +15,8 @@ const courseData = {
         heroTitle: "JEE Foundation 2026",
         heroSubtitle: "Concept-Focused Ultra-Small Batch Program",
         desc: "The JEE Foundation Program 2026 is a carefully structured, concept-driven academic model designed for serious Class 11 aspirants targeting IITs, NITs, and top engineering institutions. With a maximum of only 10 students per batch, we ensure individual attention, early JEE exposure, and strong mentor-student connection.",
-        color: "from-blue-600 to-indigo-600",
-        lightColor: "bg-blue-50 text-blue-600 border-blue-200",
+        color: "from-orange-500 to-amber-500",
+        lightColor: "bg-orange-50 text-orange-600 border-orange-200",
         subjects: ["Physics", "Chemistry", "Mathematics"],
         highlights: [
             "Maximum 10 students per batch",
@@ -90,8 +90,8 @@ const courseData = {
         heroTitle: "JEE Class 12 Preparation 2026",
         heroSubtitle: "Advanced Small Batch Tutoring",
         desc: "Designed for Class 12 JEE aspirants who already have basic Class 11 exposure and now need structured syllabus completion, deep problem-solving, and exam-oriented mentorship. The program ensures focused Class 12 coverage, board-JEE alignment, and individual mentorship to avoid backlog and burnout.",
-        color: "from-purple-600 to-indigo-500",
-        lightColor: "bg-purple-50 text-purple-600 border-purple-200",
+        color: "from-rose-500 to-orange-500",
+        lightColor: "bg-rose-50 text-rose-600 border-rose-200",
         subjects: ["Physics", "Chemistry", "Mathematics"],
         highlights: [
             "Maximum 10 students per batch",
@@ -783,13 +783,13 @@ const CoursePage = ({ onBookTrialClick }) => {
                         {/* Who Should Join */}
                         <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-10 hover:bg-white/10 transition-colors">
                             <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-                                <FaUserGraduate className="text-blue-400" /> Target Audience
+                                <FaUserGraduate className="text-white/80" /> Target Audience
                             </h2>
                             <ul className="space-y-6">
                                 {course.whoShouldJoin.map((w, i) => (
                                     <li key={i} className="flex items-start gap-4 text-white/80 text-lg">
-                                        <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                                            <span className="w-2.5 h-2.5 bg-blue-400 rounded-full"></span>
+                                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
+                                            <span className="w-2.5 h-2.5 bg-white/60 rounded-full"></span>
                                         </div>
                                         {w}
                                     </li>
