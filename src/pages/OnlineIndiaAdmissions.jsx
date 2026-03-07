@@ -8,11 +8,13 @@ const OnlineIndiaAdmissions = () => {
 
     return (
         <div className="pt-20 bg-white min-h-screen flex flex-col">
-            <div className="flex-grow w-full relative" style={{ minHeight: "calc(100vh - 80px)" }}>
+            {/* Wrapper with overflow-hidden to crop the iframe's native header */}
+            <div className="flex-grow w-full relative overflow-hidden" style={{ minHeight: "calc(100vh - 80px)" }}>
                 <iframe
                     src="https://careertest.edumilestones.com/online-courses/universities/NDUxMw=="
                     title="Online Courses Search"
-                    className="absolute top-0 left-0 w-full h-full border-none"
+                    className="absolute left-0 w-full border-none"
+                    style={{ top: "-85px", height: "calc(100% + 85px)" }}
                     allowFullScreen
                 ></iframe>
             </div>
