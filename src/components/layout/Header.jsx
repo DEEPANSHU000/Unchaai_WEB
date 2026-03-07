@@ -181,9 +181,13 @@ const Header = ({ onBookTrialClick }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 flex flex-col ${isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
         }`}
     >
+      {/* Top Notification Banner */}
+      <div className="w-full bg-[#ff5a28] text-white py-1.5 text-center text-sm font-medium z-50">
+        Get a FREE Mentorship Call Today: <a href="tel:+919661676563" className="underline hover:text-white/90 transition-colors">+91 96616 76563</a>
+      </div>
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
