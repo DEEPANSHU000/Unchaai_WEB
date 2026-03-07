@@ -178,7 +178,7 @@ const PlacementInternship = () => {
       {/* ── BENTO GRID HIGHLIGHTS ── */}
       <section className="py-24 px-4 relative z-10 -mt-10">
         <div className="container-custom max-w-6xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp()} className="text-center mb-16">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">The <span className="text-primary-600">Complete Edge</span></h2>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto">Everything you need to transform from a learner to a hired professional.</p>
           </motion.div>
@@ -191,7 +191,7 @@ const PlacementInternship = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
-                variants={fadeUp(i)}
+                variants={fadeUp}
                 whileHover={{ y: -5, scale: 1.02 }}
                 className="bg-white rounded-3xl p-8 shadow-xl shadow-gray-200/40 border border-gray-100 group relative overflow-hidden"
               >
@@ -210,7 +210,7 @@ const PlacementInternship = () => {
       {/* ── INTERACTIVE CURRICULUM TIMELINE ── */}
       <section className="py-24 px-4">
         <div className="container-custom max-w-5xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp()} className="text-center mb-16">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">8-Week <span className="text-primary-600">Transformation Journey</span></h2>
             <div className="w-24 h-1.5 bg-gradient-to-r from-primary-400 to-primary-600 rounded-full mx-auto"></div>
           </motion.div>
