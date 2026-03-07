@@ -1,3 +1,4 @@
+import ScrollToTop from "./components/common/ScrollToTop";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import Header from './components/layout/Header';
@@ -9,14 +10,23 @@ import MentorProfile from './pages/MentorProfile';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
+import BlogDetail from "./pages/BlogDetail";
+import Resources from "./pages/Resources";
 import NotFound from './pages/NotFound';
 import BookTrialModal from './components/modals/BookTrialModal';
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsConditions from "./pages/TermsConditions";
+import SuccessStories from "./pages/SuccessStories";
+import SuccessStoryDetail from "./pages/SuccessStoryDetail";
+import BecomeMentor from "./pages/BecomeMentor";
+import PlacementJobs from "./pages/PlacementJobs";
 
 function App() {
   const [isBookTrialOpen, setIsBookTrialOpen] = useState(false);
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Header onBookTrialClick={() => setIsBookTrialOpen(true)} />
         
@@ -28,6 +38,17 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogDetail />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-conditions" element={<TermsConditions />} />
+            <Route path="/success-stories" element={<SuccessStories />} />
+            <Route path="/become-mentor" element={<BecomeMentor />} />
+            <Route path="/placements/jobs" element={<PlacementJobs />} />
+            <Route
+            path="/success-stories/:slug"
+            element={<SuccessStoryDetail />}
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

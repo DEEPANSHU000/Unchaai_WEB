@@ -46,7 +46,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
-                    <p className="text-gray-600">123 Education Street, Learning District, New Delhi, India 110001</p>
+                    <p className="text-gray-600">ITHUM TOWER, 1018, Tower B, A 40, Sector 62, Noida, Uttar Pradesh 20130</p>
                   </div>
                 </div>
 
@@ -56,7 +56,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                    <p className="text-gray-600">+91 123 456 7890</p>
+                    <p className="text-gray-600">+91 9661676563</p>
                   </div>
                 </div>
 
@@ -66,7 +66,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                    <p className="text-gray-600">info@unchaai.com</p>
+                    <p className="text-gray-600">team@maiwaytech.com</p>
                   </div>
                 </div>
 
@@ -76,7 +76,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">WhatsApp</h3>
-                    <p className="text-gray-600">+91 123 456 7890</p>
+                    <p className="text-gray-600">+91 9661676563</p>
                   </div>
                 </div>
               </div>

@@ -73,6 +73,24 @@ html {
   
   .heading-gradient {
     @apply bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent;
+    @layer components {
+  /* existing styles stay */
+
+  .input {
+    @apply border border-gray-300 rounded-md px-4 py-2 w-full
+    focus:outline-none focus:ring-2 focus:ring-primary-500;
+  }
+
+  .select {
+    @apply border border-gray-300 rounded-md px-4 py-2 w-full bg-white
+    focus:outline-none focus:ring-2 focus:ring-primary-500;
+  }
+
+  .textarea {
+    @apply border border-gray-300 rounded-md px-4 py-2 w-full resize-none
+    focus:outline-none focus:ring-2 focus:ring-primary-500;
+  }
+}
   }
 }
 

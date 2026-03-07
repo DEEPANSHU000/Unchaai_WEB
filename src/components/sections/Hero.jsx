@@ -1,7 +1,14 @@
 import { motion } from 'framer-motion';
 import { FaPlay } from 'react-icons/fa';
 
+
 const Hero = ({ onBookTrialClick }) => {
+  const handleWatchDemo = () => {
+  window.open(
+    "https://youtu.be/mF92uCHWpio?si=s-yqqgppdvnR8HCi",
+    "_blank"
+  );
+};
   return (
     <section className="relative bg-gradient-to-br from-cream-50 via-white to-primary-50 pt-32 pb-20 overflow-hidden">
       {/* Background Decorations */}
@@ -66,7 +73,7 @@ const Hero = ({ onBookTrialClick }) => {
               <button onClick={onBookTrialClick} className="btn-primary text-lg px-8 py-4">
                 Book Free Trial Class
               </button>
-              <button className="btn-outline text-lg px-8 py-4 flex items-center justify-center gap-2">
+              <button onClick={handleWatchDemo} className="btn-outline text-lg px-8 py-4 flex items-center justify-center gap-2">
                 <FaPlay className="text-sm" />
                 Watch Demo Class
               </button>
@@ -146,7 +153,9 @@ const Hero = ({ onBookTrialClick }) => {
           </motion.div>
         </div>
       </div>
+
     </section>
+
   );
 };
 

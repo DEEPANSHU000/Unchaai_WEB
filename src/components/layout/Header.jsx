@@ -35,7 +35,13 @@ const Header = ({ onBookTrialClick }) => {
       ]
     },
     { name: 'Mentors', path: '/mentors' },
-    { name: 'Placements', path: '/placements' },
+    {
+      name: 'Placements',
+      dropdown: [
+        { name: 'Internship', path: '/placements/internships' },
+        { name: 'Jobs', path: '/placements/jobs' }
+    ]
+    },
     { name: 'Global Admissions', path: '/global-admissions' },
     {
       name: 'Explore',
@@ -47,6 +53,12 @@ const Header = ({ onBookTrialClick }) => {
     },
     { name: 'Become A Mentor', path: '/become-mentor' }
   ];
+  const scrollToTop = (e) => {
+  if (location.pathname === '/') {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+};
 
   return (
     <header
@@ -57,17 +69,16 @@ const Header = ({ onBookTrialClick }) => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">U</span>
-            </div>
-            <span className="text-2xl font-display font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
-              UnchaAI
-            </span>
+          <Link to="/" onClick={scrollToTop} className="flex items-center gap-3">
+            <img
+              src="/images/Unchaai-Logo.svg"
+              alt="UnchaAI Logo"
+              className="h-10 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
+          <nav onClick={scrollToTop} className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
               <div
                 key={item.name}
@@ -77,7 +88,7 @@ const Header = ({ onBookTrialClick }) => {
               >
                 {item.dropdown ? (
                   <>
-                    <button className="px-4 py-2 text-gray-700 hover:text-primary-500 font-medium transition-colors flex items-center gap-1">
+                    <button className="px-4 py-2 text-gray-700 hover:text-primary-500 font-medium transition-colors flex items-center gap-1 whitespace-nowrap">
                       {item.name}
                       <FaChevronDown className="text-xs" />
                     </button>
@@ -105,7 +116,7 @@ const Header = ({ onBookTrialClick }) => {
                 ) : (
                   <Link
                     to={item.path}
-                    className={`px-4 py-2 font-medium transition-colors ${
+                    className={`px-4 py-2 font-medium transition-colors whitespace-nowrap ${
                       location.pathname === item.path
                         ? 'text-primary-500'
                         : 'text-gray-700 hover:text-primary-500'

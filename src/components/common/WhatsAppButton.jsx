@@ -20,7 +20,7 @@ const WhatsAppButton = () => {
   }, []);
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = '911234567890'; // Replace with actual WhatsApp number
+    const phoneNumber = '+919661676563'; // Replace with any WhatsApp number
     const message = encodeURIComponent('Hi, I want to know more about UnchaAI mentorship programs.');
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };

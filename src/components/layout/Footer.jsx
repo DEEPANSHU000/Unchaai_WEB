@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import {FaWhatsapp, FaInstagram, FaLinkedinIn, FaYoutube, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -36,22 +36,25 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand Section */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-white rounded-lg flex items-center justify-center">
-                <span className="text-secondary-500 font-bold text-xl">U</span>
-              </div>
-              <span className="text-2xl font-display font-bold">UnchaAI</span>
+            <div className="flex items-center">
+              <img
+                src="/images/Unchaai-Logo.svg"
+                alt="UnchaAi Logo"
+                className="h-10 w-auto object-contain"
+              />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
               5+ Years of Academic Excellence. Unlock Your Potential with IITians/NEET Rankers as Your Personal Mentors & Tutors.
             </p>
             <div className="flex space-x-3">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-white/10 hover:bg-primary-500 rounded-full flex items-center justify-center transition-colors">
-                <FaFacebookF className="text-sm" />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-white/10 hover:bg-primary-500 rounded-full flex items-center justify-center transition-colors">
-                <FaTwitter className="text-sm" />
-              </a>
+              <a href="https://wa.me/919661676563"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 bg-white/10 hover:bg-green-500 rounded-full flex items-center justify-center transition-colors"
+              aria-label="Chat on WhatsApp"
+              >
+                <FaWhatsapp className="text-sm" />
+                </a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-white/10 hover:bg-primary-500 rounded-full flex items-center justify-center transition-colors">
                 <FaInstagram className="text-sm" />
               </a>
@@ -105,19 +108,19 @@ const Footer = () => {
               <li className="flex items-start space-x-3 text-sm">
                 <FaMapMarkerAlt className="text-primary-500 mt-1 flex-shrink-0" />
                 <span className="text-gray-300">
-                  123 Education Street, Learning District, New Delhi, India 110001
+                  ITHUM TOWER, 1018, Tower B, A 40, Sector 62, Noida, Uttar Pradesh 20130
                 </span>
               </li>
               <li className="flex items-center space-x-3 text-sm">
                 <FaPhone className="text-primary-500 flex-shrink-0" />
-                <a href="tel:+911234567890" className="text-gray-300 hover:text-primary-500 transition-colors">
-                  +91 123 456 7890
+                <a href="tel:+919661676563" className="text-gray-300 hover:text-primary-500 transition-colors">
+                  +91 9661676563
                 </a>
               </li>
               <li className="flex items-center space-x-3 text-sm">
                 <FaEnvelope className="text-primary-500 flex-shrink-0" />
-                <a href="mailto:info@unchaai.com" className="text-gray-300 hover:text-primary-500 transition-colors">
-                  info@unchaai.com
+                <a href="mailto:team@maiwaytech.com" className="text-gray-300 hover:text-primary-500 transition-colors">
+                  team@maiwaytech.com
                 </a>
               </li>
             </ul>
@@ -138,9 +141,6 @@ const Footer = () => {
               </Link>
               <Link to="/terms-conditions" className="text-gray-400 hover:text-primary-500 transition-colors">
                 Terms & Conditions
-              </Link>
-              <Link to="/refund-policy" className="text-gray-400 hover:text-primary-500 transition-colors">
-                Refund Policy
               </Link>
             </div>
           </div>

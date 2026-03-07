@@ -74,7 +74,7 @@ const LiveBatches = ({ onBookTrialClick }) => {
               {/* Overlay Badge */}
               <div className="absolute top-6 left-6 bg-white rounded-xl shadow-lg p-4">
                 <p className="text-sm text-gray-600 mb-1">Starting From</p>
-                <p className="text-2xl font-bold text-primary-500">₹999/month</p>
+                <p className="text-2xl font-bold text-primary-500">₹1999/month</p>
               </div>
             </div>
             
