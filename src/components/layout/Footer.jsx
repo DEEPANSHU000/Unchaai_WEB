@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import {FaWhatsapp, FaInstagram, FaLinkedinIn, FaYoutube, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaWhatsapp, FaInstagram, FaLinkedinIn, FaYoutube, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,19 +14,18 @@ const Footer = () => {
   ];
 
   const courses = [
-    { name: 'JEE Mains Coaching', path: '/courses/jee-mains' },
-    { name: 'JEE Advanced Coaching', path: '/courses/jee-advanced' },
-    { name: 'NEET Coaching', path: '/courses/neet' },
-    { name: 'Board Exam Preparation', path: '/courses/boards' },
-    { name: 'Olympiad Training', path: '/courses/olympiad' }
+    { name: 'JEE Class 11 Batch', path: '/courses/jee-class-11' },
+    { name: 'JEE Class 12 Batch', path: '/courses/jee-class-12' },
+    { name: 'NEET Class 11 Batch', path: '/courses/neet-class-11' },
+    { name: 'NEET Dropper Batch', path: '/courses/neet-dropper' }
   ];
 
   const resources = [
-    { name: 'Study Materials', path: '/resources/materials' },
-    { name: 'Practice Tests', path: '/resources/tests' },
-    { name: 'Previous Year Papers', path: '/resources/papers' },
-    { name: 'Video Lectures', path: '/resources/videos' },
-    { name: 'Free Resources', path: '/resources/free' }
+    { name: 'Study Materials', path: '/resources' },
+    { name: 'Practice Tests', path: '/resources' },
+    { name: 'Previous Year Papers', path: '/resources' },
+    { name: 'Video Lectures', path: '/resources' },
+    { name: 'Free Resources', path: '/resources' }
   ];
 
   return (
@@ -48,13 +47,13 @@ const Footer = () => {
             </p>
             <div className="flex space-x-3">
               <a href="https://wa.me/919661676563"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 bg-white/10 hover:bg-green-500 rounded-full flex items-center justify-center transition-colors"
-              aria-label="Chat on WhatsApp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 bg-white/10 hover:bg-green-500 rounded-full flex items-center justify-center transition-colors"
+                aria-label="Chat on WhatsApp"
               >
                 <FaWhatsapp className="text-sm" />
-                </a>
+              </a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-white/10 hover:bg-primary-500 rounded-full flex items-center justify-center transition-colors">
                 <FaInstagram className="text-sm" />
               </a>
@@ -119,8 +118,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-3 text-sm">
                 <FaEnvelope className="text-primary-500 flex-shrink-0" />
-                <a href="mailto:team@maiwaytech.com" className="text-gray-300 hover:text-primary-500 transition-colors">
-                  team@maiwaytech.com
+                <a href="mailto:hello@unchaai.com" className="text-gray-300 hover:text-primary-500 transition-colors">
+                  hello@unchaai.com
                 </a>
               </li>
             </ul>
