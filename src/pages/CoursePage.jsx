@@ -651,72 +651,120 @@ const CoursePage = ({ onBookTrialClick }) => {
                                         </motion.div>
 
                                         {/* Main Chart/Progress Card */}
-                                        <motion.div
-                                            animate={{ y: [0, 8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                                            className="bg-white rounded-2xl p-6 shadow-[0_20px_40px_rgb(0,0,0,0.08)] border border-gray-50 w-full md:-ml-6 flex flex-col gap-6 z-20 relative"
-                                        >
-                                            <div className="flex items-center justify-between">
-                                                <div className="text-sm font-bold text-gray-800">Weekly Progress</div>
-                                                <span className="text-xs font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded-md border border-green-100">+12%</span>
-                                            </div>
-
-                                            <div className="flex gap-5 items-center">
-                                                <div className="w-[72px] h-[72px] shrink-0 relative flex items-center justify-center">
-                                                    <svg className="w-[72px] h-[72px] transform -rotate-90">
-                                                        <circle cx="36" cy="36" r="32" stroke="currentColor" strokeWidth="6" fill="transparent" className="text-gray-50" />
-                                                        <motion.circle
-                                                            initial={{ strokeDasharray: "201", strokeDashoffset: "201" }}
-                                                            whileInView={{ strokeDashoffset: "40" }}
-                                                            viewport={{ once: true }}
-                                                            transition={{ duration: 2, ease: "easeOut", delay: 0.5 }}
-                                                            cx="36" cy="36" r="32" stroke="currentColor" strokeWidth="6" fill="transparent"
-                                                            className="text-primary-500"
-                                                            strokeLinecap="round"
-                                                        />
-                                                    </svg>
-                                                    <div className="absolute flex flex-col items-center justify-center">
-                                                        <span className="text-base font-black text-gray-800 leading-none">80</span>
-                                                        <span className="text-[9px] font-bold text-gray-400 leading-none mt-0.5">%</span>
+                                        {si === 0 && (
+                                            <>
+                                                <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="bg-white rounded-2xl p-6 shadow-[0_20px_40px_rgb(0,0,0,0.08)] border border-gray-50 w-full md:-ml-6 flex flex-col gap-6 z-20 relative">
+                                                    <div className="flex items-center justify-between">
+                                                        <div className="text-sm font-bold text-gray-800">Weekly Progress</div>
+                                                        <span className="text-xs font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded-md border border-green-100">+12%</span>
                                                     </div>
-                                                </div>
-                                                <div className="flex-grow space-y-3.5">
+                                                    <div className="flex gap-5 items-center">
+                                                        <div className="w-[72px] h-[72px] shrink-0 relative flex items-center justify-center">
+                                                            <svg className="w-[72px] h-[72px] transform -rotate-90">
+                                                                <circle cx="36" cy="36" r="32" stroke="currentColor" strokeWidth="6" fill="transparent" className="text-gray-50" />
+                                                                <motion.circle initial={{ strokeDasharray: "201", strokeDashoffset: "201" }} whileInView={{ strokeDashoffset: "40" }} viewport={{ once: true }} transition={{ duration: 2, ease: "easeOut", delay: 0.5 }} cx="36" cy="36" r="32" stroke="currentColor" strokeWidth="6" fill="transparent" className="text-primary-500" strokeLinecap="round" />
+                                                            </svg>
+                                                            <div className="absolute flex flex-col items-center justify-center">
+                                                                <span className="text-base font-black text-gray-800 leading-none">80</span>
+                                                                <span className="text-[9px] font-bold text-gray-400 leading-none mt-0.5">%</span>
+                                                            </div>
+                                                        </div>
+                                                        <div className="flex-grow space-y-3.5">
+                                                            <div>
+                                                                <div className="flex justify-between text-[11px] font-semibold text-gray-500 mb-1.5"><span>Lectures</span><span className="text-gray-800">18/20</span></div>
+                                                                <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden"><motion.div initial={{ width: 0 }} whileInView={{ width: "90%" }} transition={{ duration: 1.5, delay: 0.5 }} className={`h-full bg-gradient-to-r ${course.color}`}></motion.div></div>
+                                                            </div>
+                                                            <div>
+                                                                <div className="flex justify-between text-[11px] font-semibold text-gray-500 mb-1.5"><span>Practice</span><span className="text-gray-800">45/60</span></div>
+                                                                <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden"><motion.div initial={{ width: 0 }} whileInView={{ width: "75%" }} transition={{ duration: 1.5, delay: 0.7 }} className={`h-full bg-gradient-to-r ${course.color} opacity-70`}></motion.div></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </motion.div>
+
+                                                {/* Floating Badges */}
+                                                <motion.div animate={{ y: [0, -15, 0], rotate: [0, 8, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }} className="absolute top-6 right-0 w-12 h-12 bg-white rounded-2xl shadow-lg border border-gray-50 flex items-center justify-center z-0">
+                                                    <FaStar className="text-yellow-400 text-xl" />
+                                                </motion.div>
+                                                <motion.div animate={{ y: [0, 10, 0], scale: [1, 1.05, 1] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }} className="absolute bottom-6 right-6 bg-gray-900 border border-gray-700 text-white text-[10px] font-bold px-3 py-2 rounded-full shadow-2xl z-30 flex items-center gap-2">
+                                                    <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div> Live Session
+                                                </motion.div>
+                                            </>
+                                        )}
+
+                                        {si === 1 && (
+                                            <>
+                                                <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="bg-white rounded-2xl p-6 shadow-[0_20px_40px_rgb(0,0,0,0.08)] border border-gray-50 w-full md:-ml-6 flex flex-col gap-4 z-20 relative">
+                                                    <div className="flex items-center justify-between mb-2">
+                                                        <div className="text-sm font-bold text-gray-800">Latest Materials</div>
+                                                        <span className="text-[10px] font-bold text-primary-600 bg-primary-50 px-2 py-1 rounded-md">View All</span>
+                                                    </div>
+                                                    {[1, 2, 3].map((_, i) => (
+                                                        <div key={i} className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-gray-50 border border-transparent hover:border-gray-100 transition-colors cursor-pointer group/item">
+                                                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br ${course.color} shrink-0`}>
+                                                                <FaBookOpen className="text-white text-sm" />
+                                                            </div>
+                                                            <div className="flex-grow">
+                                                                <div className="text-xs font-bold text-gray-800 group-hover/item:text-primary-600 transition-colors">Chapter {i + 1} Notes</div>
+                                                                <div className="text-[10px] text-gray-500">PDF • 2.{i + 1} MB</div>
+                                                            </div>
+                                                            <div className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 group-hover/item:bg-primary-100 group-hover/item:text-primary-600 transition-colors">
+                                                                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </motion.div>
+
+                                                <motion.div animate={{ y: [0, -10, 0], rotate: [0, -5, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }} className="absolute -top-4 right-4 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-50 flex items-center justify-center z-0 text-2xl">
+                                                    📚
+                                                </motion.div>
+                                            </>
+                                        )}
+
+                                        {si === 2 && (
+                                            <>
+                                                <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="bg-white rounded-2xl p-6 shadow-[0_20px_40px_rgb(0,0,0,0.08)] border border-gray-50 w-full md:-ml-6 flex flex-col gap-5 z-20 relative">
+                                                    <div className="flex items-center justify-between">
+                                                        <div className="text-sm font-bold text-gray-800">Mock Test Scores</div>
+                                                        <div className="flex items-center gap-1 bg-yellow-50 px-2 py-1 rounded-md border border-yellow-100"><FaStar className="text-yellow-500 text-xs" /> <span className="text-[10px] font-bold text-yellow-700">Top 5%</span></div>
+                                                    </div>
+
+                                                    {/* Bar Chart */}
+                                                    <div className="h-28 flex items-end justify-between gap-1.5 md:gap-2 pt-2 border-b border-gray-100 pb-2 relative">
+                                                        {/* Target Line */}
+                                                        <div className="absolute top-6 left-0 w-full border-t border-dashed border-gray-300"></div>
+
+                                                        {[40, 55, 45, 75, 60, 85, 95].map((height, i) => (
+                                                            <div key={i} className="w-full flex justify-center h-full items-end group">
+                                                                <motion.div initial={{ height: 0 }} whileInView={{ height: `${height}%` }} viewport={{ once: true }} transition={{ duration: 1, delay: i * 0.1 }} className={`w-full max-w-[12px] rounded-t-sm opacity-80 group-hover:opacity-100 transition-opacity ${i === 6 ? `bg-gradient-to-t ${course.color}` : 'bg-gray-200'}`}></motion.div>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+
+                                                    {/* Stats */}
+                                                    <div className="flex justify-between items-center pt-2">
+                                                        <div>
+                                                            <div className="text-2xl font-black text-gray-900 leading-none">680<span className="text-sm text-gray-400 font-medium">/720</span></div>
+                                                            <div className="text-[10px] font-semibold text-gray-500 mt-1 uppercase tracking-wider">Latest Score</div>
+                                                        </div>
+                                                        <div className="text-right">
+                                                            <div className="text-sm font-bold border border-green-200 text-green-600 bg-green-50 px-2 rounded">+45 pts</div>
+                                                            <div className="text-[10px] font-semibold text-gray-500 mt-1 uppercase tracking-wider">Improvement</div>
+                                                        </div>
+                                                    </div>
+                                                </motion.div>
+
+                                                <motion.div animate={{ y: [0, -15, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="absolute -bottom-4 right-10 bg-white border border-gray-100 rounded-2xl shadow-xl px-4 py-3 z-30 flex items-center gap-3">
+                                                    <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-500">
+                                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
+                                                    </div>
                                                     <div>
-                                                        <div className="flex justify-between text-[11px] font-semibold text-gray-500 mb-1.5">
-                                                            <span>Lectures</span>
-                                                            <span className="text-gray-800">18/20</span>
-                                                        </div>
-                                                        <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                                                            <motion.div initial={{ width: 0 }} whileInView={{ width: "90%" }} transition={{ duration: 1.5, delay: 0.5 }} className={`h-full bg-gradient-to-r ${course.color}`}></motion.div>
-                                                        </div>
+                                                        <div className="text-xs font-bold text-gray-800">100% Accuracy</div>
+                                                        <div className="text-[9px] text-gray-500">In Physics</div>
                                                     </div>
-                                                    <div>
-                                                        <div className="flex justify-between text-[11px] font-semibold text-gray-500 mb-1.5">
-                                                            <span>Practice</span>
-                                                            <span className="text-gray-800">45/60</span>
-                                                        </div>
-                                                        <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                                                            <motion.div initial={{ width: 0 }} whileInView={{ width: "75%" }} transition={{ duration: 1.5, delay: 0.7 }} className={`h-full bg-gradient-to-r ${course.color} opacity-70`}></motion.div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </motion.div>
-
-                                        {/* Floating Elements (Background) */}
-                                        <motion.div
-                                            animate={{ y: [0, -15, 0], rotate: [0, 8, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                                            className="absolute top-6 right-0 w-12 h-12 bg-white rounded-2xl shadow-lg border border-gray-50 flex items-center justify-center z-0"
-                                        >
-                                            <FaStar className="text-yellow-400 text-xl" />
-                                        </motion.div>
-
-                                        <motion.div
-                                            animate={{ y: [0, 10, 0], scale: [1, 1.05, 1] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                                            className="absolute bottom-6 right-6 bg-gray-900 border border-gray-700 text-white text-[10px] font-bold px-3 py-2 rounded-full shadow-2xl z-30 flex items-center gap-2"
-                                        >
-                                            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-                                            Live Session
-                                        </motion.div>
+                                                </motion.div>
+                                            </>
+                                        )}
 
                                     </div>
                                 </div>
