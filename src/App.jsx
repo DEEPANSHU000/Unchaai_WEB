@@ -50,7 +50,7 @@ function App() {
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/become-mentor" element={<BecomeMentor />} />
             <Route path="/placements/jobs" element={<PlacementJobs />} />
-            <Route path="/placements/internships" element={<PlacementInternship onBookTrialClick={() => setIsModalOpen(true)} />} />
+            <Route path="/placements/internships" element={<PlacementInternship onBookTrialClick={() => setIsBookTrialOpen(true)} />} />
             <Route path="/courses/:slug" element={<CoursePage onBookTrialClick={() => setIsBookTrialOpen(true)} />} />
             <Route path="/global-admissions/overseas" element={<OverseasAdmissions />} />
             <Route path="/global-admissions/campus-india" element={<CampusIndiaAdmissions />} />
