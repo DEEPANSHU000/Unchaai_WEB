@@ -153,19 +153,26 @@ const MentorProfile = ({ onBookTrialClick }) => {
             {/* Student Testimonials */}
             {mentor.testimonials && mentor.testimonials.length > 0 && (
               <div className="card p-6">
-                <h2 className="text-2xl font-display font-bold text-gray-900 mb-4">Student Testimonials</h2>
-                <div className="space-y-4">
+                <h2 className="text-2xl font-display font-bold text-gray-900 mb-4 flex items-center">
+                  <span className="text-2xl mr-2">💬</span> Student Testimonials
+                </h2>
+                <div className="grid sm:grid-cols-2 gap-4">
                   {mentor.testimonials.map((testimonial, index) => (
-                    <div key={index} className="bg-cream-50 p-4 rounded-lg">
-                      <div className="flex items-center mb-2">
-                        <div className="flex">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <FaStar key={i} className="text-yellow-400 text-sm" />
-                          ))}
+                    <div key={index} className="bg-cream-50 p-5 rounded-2xl border border-cream-100 flex flex-col">
+                      <div className="flex items-center mb-3">
+                        <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 font-bold mr-3">
+                          {testimonial.student_name.charAt(0)}
                         </div>
-                        <span className="ml-2 font-semibold text-gray-900">{testimonial.student_name}</span>
+                        <div>
+                          <div className="font-bold text-gray-900 leading-tight">{testimonial.student_name}</div>
+                          <div className="flex text-yellow-400 text-xs mt-1">
+                            {[...Array(testimonial.rating)].map((_, i) => (
+                              <FaStar key={i} />
+                            ))}
+                          </div>
+                        </div>
                       </div>
-                      <p className="text-gray-700 text-sm">{testimonial.comment}</p>
+                      <p className="text-gray-600 text-sm italic leading-relaxed flex-grow">"{testimonial.comment}"</p>
                     </div>
                   ))}
                 </div>
