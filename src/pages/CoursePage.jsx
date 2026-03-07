@@ -90,8 +90,8 @@ const courseData = {
         heroTitle: "JEE Class 12 Preparation 2026",
         heroSubtitle: "Advanced Small Batch Tutoring",
         desc: "Designed for Class 12 JEE aspirants who already have basic Class 11 exposure and now need structured syllabus completion, deep problem-solving, and exam-oriented mentorship. The program ensures focused Class 12 coverage, board-JEE alignment, and individual mentorship to avoid backlog and burnout.",
-        color: "from-rose-500 to-orange-500",
-        lightColor: "bg-rose-50 text-rose-600 border-rose-200",
+        color: "from-orange-500 to-red-500",
+        lightColor: "bg-orange-50 text-orange-600 border-orange-200",
         subjects: ["Physics", "Chemistry", "Mathematics"],
         highlights: [
             "Maximum 10 students per batch",
@@ -240,8 +240,8 @@ const courseData = {
         heroTitle: "NEET Foundation 2026",
         heroSubtitle: "Ultra-Small Batch Tutoring",
         desc: "A foundation-building NEET preparation model for Class 11 students, aimed at developing strong NCERT-based concepts, disciplined study habits, and early exam readiness. With an ultra-small batch of maximum 10 students, the focus is on NCERT mastery, accuracy, consistency, and conceptual understanding.",
-        color: "from-teal-500 to-green-500",
-        lightColor: "bg-teal-50 text-teal-600 border-teal-200",
+        color: "from-amber-500 to-orange-500",
+        lightColor: "bg-orange-50 text-orange-600 border-orange-200",
         subjects: ["Physics", "Chemistry", "Biology"],
         highlights: [
             "Maximum 10 students per batch",
@@ -315,8 +315,8 @@ const courseData = {
         heroTitle: "NEET UG Preparation 2026",
         heroSubtitle: "Ultra-Small Batch Tutoring",
         desc: "A focused NEET preparation program for Class 12 students balancing board exams alongside NEET prep. With maximum 10 students per batch, the program delivers NCERT-mastery, board-to-NEET integrated strategy, targeted practice, and continuous mentorship.",
-        color: "from-emerald-500 to-teal-500",
-        lightColor: "bg-emerald-50 text-emerald-600 border-emerald-200",
+        color: "from-orange-500 to-rose-500",
+        lightColor: "bg-orange-50 text-orange-600 border-orange-200",
         subjects: ["Physics", "Chemistry", "Biology"],
         highlights: [
             "Maximum 10 students per batch",
@@ -390,8 +390,8 @@ const courseData = {
         heroTitle: "NEET UG Preparation 2026",
         heroSubtitle: "Ultra-Small Batch Tutoring for Droppers",
         desc: "A focused, high-intensity NEET preparation program for dropper students who want to significantly improve their NEET rank. With maximum 10 students per batch, the program combines dedicated 1-on-1 mentorship, complete NCERT mastery, aggressive revision cycles, and full-length test series.",
-        color: "from-rose-500 to-pink-600",
-        lightColor: "bg-rose-50 text-rose-600 border-rose-200",
+        color: "from-red-500 to-orange-500",
+        lightColor: "bg-orange-50 text-orange-600 border-orange-200",
         subjects: ["Physics", "Chemistry", "Biology"],
         highlights: [
             "Maximum 10 students per batch",
@@ -505,9 +505,10 @@ const CoursePage = ({ onBookTrialClick }) => {
 
             {/* ── HERO SECTION WITH GLASSMORPHISM & FLOATING BLOBS ── */}
             <section className={`relative bg-gradient-to-br ${course.color} text-white pt-24 pb-32 px-4 overflow-hidden`}>
-                {/* Floating Shapes Background */}
-                <motion.div animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="absolute top-10 left-[10%] w-64 h-64 bg-white/10 rounded-full blur-3xl"></motion.div>
-                <motion.div animate={{ y: [0, 30, 0], rotate: [0, -10, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute bottom-[-20%] right-[5%] w-96 h-96 bg-black/10 rounded-full blur-3xl"></motion.div>
+                {/* Animated Glowing Orbs Background */}
+                <motion.div animate={{ scale: [1, 1.2, 1], x: [0, 50, 0], y: [0, -30, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute top-0 left-0 w-96 h-96 bg-white/20 rounded-full blur-[100px]"></motion.div>
+                <motion.div animate={{ scale: [1, 1.5, 1], x: [0, -50, 0], y: [0, 50, 0] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-amber-300/20 rounded-full blur-[120px] pointer-events-none"></motion.div>
+                <motion.div animate={{ scale: [1, 1.3, 1], y: [0, -40, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-red-400/10 rounded-full blur-[150px] pointer-events-none"></motion.div>
 
                 <div className="container-custom max-w-5xl relative z-10 text-center">
                     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
