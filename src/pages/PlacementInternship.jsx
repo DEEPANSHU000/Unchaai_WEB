@@ -56,7 +56,7 @@ const popIn = {
   visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 100 } },
 };
 
-const PlacementInternship = () => {
+const PlacementInternship = ({ onBookTrialClick }) => {
   return (
     <div className="pt-20 bg-gray-50 min-h-screen overflow-hidden">
 
@@ -83,11 +83,11 @@ const PlacementInternship = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-5 justify-center lg:justify-start">
-              <button className="w-full sm:w-auto bg-white text-primary-900 font-bold px-8 py-4 rounded-full shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:shadow-[0_0_50px_rgba(255,255,255,0.5)] transition-all text-lg tracking-wide hover:-translate-y-1">
+              <button onClick={onBookTrialClick} className="w-full sm:w-auto bg-white text-primary-900 font-bold px-8 py-4 rounded-full shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:shadow-[0_0_50px_rgba(255,255,255,0.5)] transition-all text-lg tracking-wide hover:-translate-y-1">
                 Apply for Internship
               </button>
-              <button className="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold px-8 py-4 rounded-full hover:bg-white/20 transition-all text-lg tracking-wide flex items-center justify-center gap-2">
-                <FaRegClock /> Download Syllabus
+              <button onClick={onBookTrialClick} className="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold px-8 py-4 rounded-full hover:bg-white/20 transition-all text-lg tracking-wide flex items-center justify-center gap-2">
+                <FaRegClock /> Book Free Session
               </button>
             </div>
 
@@ -339,7 +339,7 @@ const PlacementInternship = () => {
 
             <div className="relative inline-block group z-10">
               <div className="absolute inset-0 bg-white/40 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-              <button className="relative bg-white text-gray-900 font-bold px-12 py-6 rounded-full shadow-2xl text-xl tracking-wide hover:bg-gray-50 transition-colors flex items-center gap-3 mx-auto">
+              <button onClick={onBookTrialClick} className="relative bg-white text-gray-900 font-bold px-12 py-6 rounded-full shadow-2xl text-xl tracking-wide hover:bg-gray-50 transition-colors flex items-center gap-3 mx-auto">
                 Apply Now <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
