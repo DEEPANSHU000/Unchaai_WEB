@@ -20,6 +20,9 @@ import SuccessStories from "./pages/SuccessStories";
 import SuccessStoryDetail from "./pages/SuccessStoryDetail";
 import BecomeMentor from "./pages/BecomeMentor";
 import PlacementJobs from "./pages/PlacementJobs";
+import PlacementInternship from "./pages/PlacementInternship";
+import Courses from "./pages/Courses";
+import GlobalAdmissions from "./pages/GlobalAdmissions";
 
 function App() {
   const [isBookTrialOpen, setIsBookTrialOpen] = useState(false);
@@ -29,7 +32,7 @@ function App() {
       <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Header onBookTrialClick={() => setIsBookTrialOpen(true)} />
-        
+
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home onBookTrialClick={() => setIsBookTrialOpen(true)} />} />
@@ -45,9 +48,13 @@ function App() {
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/become-mentor" element={<BecomeMentor />} />
             <Route path="/placements/jobs" element={<PlacementJobs />} />
+            <Route path="/placements/internships" element={<PlacementInternship />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/courses/:courseSlug" element={<Courses />} />
+            <Route path="/global-admissions" element={<GlobalAdmissions />} />
             <Route
-            path="/success-stories/:slug"
-            element={<SuccessStoryDetail />}
+              path="/success-stories/:slug"
+              element={<SuccessStoryDetail />}
             />
             <Route path="*" element={<NotFound />} />
           </Routes>
@@ -55,7 +62,7 @@ function App() {
 
         <Footer />
         <WhatsAppButton />
-        
+
         {isBookTrialOpen && (
           <BookTrialModal onClose={() => setIsBookTrialOpen(false)} />
         )}
