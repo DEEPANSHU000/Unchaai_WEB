@@ -1,8 +1,21 @@
+import { useEffect } from "react";
+
 const OnlineIndiaAdmissions = () => {
+    // Scroll to top on mount
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
-        <div className="pt-32 pb-20 bg-gray-50 min-h-screen text-center">
-            <h1 className="text-4xl font-bold mb-4">Online India Admissions</h1>
-            <p className="text-gray-500">Content coming soon...</p>
+        <div className="pt-20 bg-white min-h-screen flex flex-col">
+            <div className="flex-grow w-full relative" style={{ minHeight: "calc(100vh - 80px)" }}>
+                <iframe
+                    src="https://careertest.edumilestones.com/online-courses/universities/NDUxMw=="
+                    title="Online Courses Search"
+                    className="absolute top-0 left-0 w-full h-full border-none"
+                    allowFullScreen
+                ></iframe>
+            </div>
         </div>
     );
 };
