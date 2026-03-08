@@ -11,20 +11,24 @@ const navItems = [
     megaMenu: [
       {
         group: 'JEE',
+        icon: '⚛️',
+        desc: 'Physics, Chemistry & Maths for IIT aspirants',
         path: '/courses/jee',
         items: [
-          { name: 'JEE Class 11 Batch', path: '/courses/jee-class-11' },
-          { name: 'JEE Class 12 Batch', path: '/courses/jee-class-12' },
-          { name: 'JEE Droppers Batch', path: '/courses/jee-dropper' },
+          { name: 'JEE Class 11 Batch', path: '/courses/jee-class-11', icon: '📘', desc: 'Foundation & advanced for Class 11' },
+          { name: 'JEE Class 12 Batch', path: '/courses/jee-class-12', icon: '📗', desc: 'Intensive prep for Class 12 droppers' },
+          { name: 'JEE Droppers Batch', path: '/courses/jee-dropper', icon: '🎯', desc: 'Crash course for serious droppers' },
         ],
       },
       {
         group: 'NEET',
+        icon: '🏥',
+        desc: 'Biology, Physics & Chemistry for AIIMS/NEET',
         path: '/courses/neet',
         items: [
-          { name: 'NEET Class 11 Batch', path: '/courses/neet-class-11' },
-          { name: 'NEET Class 12 Batch', path: '/courses/neet-class-12' },
-          { name: 'NEET Droppers Batch', path: '/courses/neet-dropper' },
+          { name: 'NEET Class 11 Batch', path: '/courses/neet-class-11', icon: '📘', desc: 'Foundation & advanced for Class 11' },
+          { name: 'NEET Class 12 Batch', path: '/courses/neet-class-12', icon: '📗', desc: 'Intensive prep for Class 12 students' },
+          { name: 'NEET Droppers Batch', path: '/courses/neet-dropper', icon: '🎯', desc: 'Focused course for NEET droppers' },
         ],
       },
     ],
@@ -33,29 +37,29 @@ const navItems = [
   {
     name: 'Placements',
     dropdown: [
-      { name: 'Internship', path: '/placements/internships' },
-      { name: 'Jobs', path: '/placements/jobs' },
+      { name: 'Internship', path: '/placements/internships', icon: '💼', desc: 'Find top internship opportunities', accent: 'bg-blue-500' },
+      { name: 'Jobs', path: '/placements/jobs', icon: '🚀', desc: 'Launch your career with UnchaAi', accent: 'bg-green-500' },
     ],
   },
   {
     name: 'Global Admissions',
     dropdown: [
-      { name: 'Overseas Admissions', path: '/global-admissions/overseas' },
-      { name: 'Campus India Admissions', path: '/global-admissions/campus-india' },
-      { name: 'Online India Admissions', path: '/global-admissions/online-india' },
+      { name: 'Overseas Admissions', path: '/global-admissions/overseas', icon: '✈️', desc: 'Study abroad programs & guidance', accent: 'bg-purple-500' },
+      { name: 'Campus India Admissions', path: '/global-admissions/campus-india', icon: '🏛️', desc: 'Top campus college admissions', accent: 'bg-orange-500' },
+      { name: 'Online India Admissions', path: '/global-admissions/online-india', icon: '💻', desc: 'Flexible online degree programs', accent: 'bg-teal-500' },
     ],
   },
   {
     name: 'Explore',
     dropdown: [
-      { name: 'Success Stories', path: '/success-stories' },
-      { name: 'Blog', path: '/blog' },
+      { name: 'Success Stories', path: '/success-stories', icon: '🏆', desc: 'Hear from students who cracked it', accent: 'bg-yellow-500' },
+      { name: 'Blog', path: '/blog', icon: '📝', desc: 'Tips, strategies & exam insights', accent: 'bg-pink-500' },
     ],
   },
   { name: 'Become A Mentor', path: '/become-mentor' },
 ];
 
-/* ─── mega dropdown ─── */
+/* ─── mega dropdown (Courses) ─── */
 const MegaMenu = ({ groups, isOpen }) => {
   const [activeGroup, setActiveGroup] = useState(groups[0]?.group ?? '');
 
@@ -69,47 +73,64 @@ const MegaMenu = ({ groups, isOpen }) => {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 10 }}
-          transition={{ duration: 0.18 }}
-          className="absolute top-full left-0 mt-2 flex bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden z-50"
-          style={{ minWidth: 380 }}
+          initial={{ opacity: 0, y: 12, scale: 0.97 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 12, scale: 0.97 }}
+          transition={{ duration: 0.2 }}
+          className="absolute top-full left-0 mt-3 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden z-50 flex"
+          style={{ minWidth: 520, boxShadow: '0 25px 50px rgba(0,0,0,0.12)' }}
         >
-          {/* Left pane — groups */}
-          <div className="py-3 px-2 bg-gray-50 border-r border-gray-100" style={{ minWidth: 160 }}>
+          {/* Left pane — group selector */}
+          <div className="w-44 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-100 p-3">
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest px-3 mb-3">Courses</p>
             {groups.map((g) => (
               <button
                 key={g.group}
                 onMouseEnter={() => setActiveGroup(g.group)}
                 onClick={() => setActiveGroup(g.group)}
-                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${activeGroup === g.group
-                  ? 'text-primary-500 bg-white shadow-sm'
-                  : 'text-gray-600 hover:text-primary-500 hover:bg-white'
+                className={`w-full flex items-center gap-3 px-3 py-4 rounded-2xl text-left transition-all ${activeGroup === g.group
+                    ? 'bg-white shadow-md text-primary-600'
+                    : 'text-gray-600 hover:bg-white/70 hover:text-primary-500'
                   }`}
               >
-                <span className="flex items-center gap-2">
-                  {activeGroup === g.group && (
-                    <span className="text-primary-500 text-xs">✦</span>
-                  )}
-                  {g.group}
-                </span>
-                <FaChevronRight className="text-xs opacity-50" />
+                <span className="text-2xl">{g.icon}</span>
+                <div>
+                  <div className="font-bold text-sm">{g.group}</div>
+                  <div className="text-xs text-gray-400 leading-tight mt-0.5">{g.desc}</div>
+                </div>
               </button>
             ))}
+            <div className="mt-4 px-3">
+              <div className="h-px bg-gray-200 mb-3" />
+              <p className="text-xs text-gray-400 leading-relaxed">1-on-1 mentorship from top IITians & doctors</p>
+            </div>
           </div>
 
           {/* Right pane — sub-items */}
-          <div className="py-3 px-3" style={{ minWidth: 220 }}>
-            {current?.items.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className="block px-4 py-3 rounded-xl text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
+          <div className="flex-1 p-4">
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 px-2">{activeGroup} Batches</p>
+            <div className="space-y-1">
+              {current?.items.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className="flex items-center gap-4 px-4 py-4 rounded-2xl hover:bg-primary-50 group transition-all"
+                >
+                  <div className="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center text-lg group-hover:bg-primary-200 transition-colors shrink-0">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-gray-900 group-hover:text-primary-600 transition-colors">{item.name}</div>
+                    <div className="text-xs text-gray-400 mt-0.5">{item.desc}</div>
+                  </div>
+                  <FaChevronRight className="ml-auto text-gray-300 text-xs group-hover:text-primary-400 transition-colors" />
+                </Link>
+              ))}
+            </div>
+            <div className="mt-4 mx-2 bg-gradient-to-r from-primary-500 to-orange-500 rounded-2xl p-4 text-white">
+              <div className="text-sm font-bold mb-1">🎯 Book a Free Demo</div>
+              <div className="text-xs text-white/80">Talk to a mentor before enrolling</div>
+            </div>
           </div>
         </motion.div>
       )}
@@ -122,21 +143,31 @@ const SimpleDropdown = ({ items, isOpen }) => (
   <AnimatePresence>
     {isOpen && (
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 10 }}
-        transition={{ duration: 0.18 }}
-        className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-xl py-2 border border-gray-100 z-50"
+        initial={{ opacity: 0, y: 12, scale: 0.97 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 12, scale: 0.97 }}
+        transition={{ duration: 0.2 }}
+        className="absolute top-full left-0 mt-3 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden z-50"
+        style={{ minWidth: 260, boxShadow: '0 25px 50px rgba(0,0,0,0.12)' }}
       >
-        {items.map((item) => (
-          <Link
-            key={item.path}
-            to={item.path}
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors"
-          >
-            {item.name}
-          </Link>
-        ))}
+        <div className="p-3 space-y-1">
+          {items.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className="flex items-center gap-4 px-4 py-4 rounded-2xl hover:bg-gray-50 group transition-all"
+            >
+              <div className={`w-10 h-10 ${item.accent} rounded-xl flex items-center justify-center text-white text-lg shrink-0 shadow-sm group-hover:scale-110 transition-transform`}>
+                {item.icon}
+              </div>
+              <div className="flex-1">
+                <div className="text-sm font-bold text-gray-900 group-hover:text-primary-600 transition-colors">{item.name}</div>
+                <div className="text-xs text-gray-400 mt-0.5">{item.desc}</div>
+              </div>
+              <FaChevronRight className="text-gray-300 text-xs group-hover:text-primary-400 transition-colors" />
+            </Link>
+          ))}
+        </div>
       </motion.div>
     )}
   </AnimatePresence>
