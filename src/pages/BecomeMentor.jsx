@@ -234,53 +234,81 @@ const BecomeMentor = () => {
         </div>
       </section>
 
-      {/* -- BENEFITS DETAILS GRID -- */}
-      <section className="py-24 bg-gray-50">
+      {/* -- THE BENEFITS YOU'LL GET (Cards - matching unchaai.com) -- */}
+      <section className="py-24 bg-[#F2F8F1]">
         <div className="container-custom max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-              <span className="inline-block bg-green-50 text-green-600 text-sm font-bold px-4 py-2 rounded-full mb-6 border border-green-100">THE BENEFITS YOU GET</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">Everything you need to <span className="text-primary-600">thrive as a mentor</span></h2>
-              <p className="text-gray-500 text-lg mb-10 leading-relaxed">We handle finding students, payments, and support — so you can focus on what you love: teaching.</p>
-              <div className="grid grid-cols-2 gap-5">
-                {[
-                  { icon: "💸", title: "Easy Payout System", desc: "Simple, transparent payment process." },
-                  { icon: "📅", title: "Weekly Payouts", desc: "Get paid every week, no delays." },
-                  { icon: "🎧", title: "24/7 Tutor Support", desc: "Our team is always here for you." },
-                  { icon: "🏠", title: "Teach From Home", desc: "100% remote, no commute ever." },
-                  { icon: "📜", title: "Enhance Your CV", desc: "Boost your profile with mentorship experience." },
-                  { icon: "💡", title: "Make a Difference", desc: "Change lives of IIT/NEET aspirants." },
-                ].map((b, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className="text-2xl shrink-0">{b.icon}</div>
-                    <div>
-                      <div className="font-bold text-gray-900 text-sm mb-1">{b.title}</div>
-                      <div className="text-gray-500 text-xs leading-relaxed">{b.desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-              <div className="bg-gradient-to-br from-gray-900 to-primary-900 rounded-[2.5rem] p-10 text-white relative overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-                <div className="relative z-10 space-y-6">
-                  <div className="text-5xl">🎯</div>
-                  <h3 className="text-2xl font-bold">Your earning potential is <span className="text-primary-400">unlimited</span></h3>
-                  <p className="text-white/70 text-sm leading-relaxed">The more sessions you conduct, the more you earn. Many of our top mentors earn over ₹50,000 a month from the comfort of their hostel rooms.</p>
-                  <div className="space-y-3">
-                    {["Flexible 5-30 hrs/week", "Paid for every session", "Weekly bank transfer", "No marketing needed"].map((point, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <FaCheckCircle className="text-green-400 shrink-0" />
-                        <span className="text-white/90 text-sm font-medium">{point}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-px w-12 bg-green-400"></div>
+              <span className="text-green-600 text-sm font-bold uppercase tracking-widest">WHAT WE HANDLE</span>
+              <div className="h-px w-12 bg-green-400"></div>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900">The Benefits You'll Get</h2>
           </div>
+
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-3 gap-6"
+          >
+            {[
+              {
+                icon: "💳",
+                title: "Easy Payout System",
+                desc: "Payment is settled based on the number of sessions taken",
+                bg: "bg-amber-50",
+                border: "border-amber-100"
+              },
+              {
+                icon: "📅",
+                title: "Weekly Payout",
+                desc: "Get paid weekly for the number of sessions taken in that week",
+                bg: "bg-blue-50",
+                border: "border-blue-100"
+              },
+              {
+                icon: "🎧",
+                title: "24/7 Tutor Support",
+                desc: "Our team is available to help you around the clock",
+                bg: "bg-purple-50",
+                border: "border-purple-100"
+              },
+              {
+                icon: "🏠",
+                title: "Teach From Home",
+                desc: "Take classes online and avoid the hassle of commuting",
+                bg: "bg-green-50",
+                border: "border-green-100"
+              },
+              {
+                icon: "📜",
+                title: "Enhance Your CV",
+                desc: "We recognize our best teachers with a certificate of excellence",
+                bg: "bg-orange-50",
+                border: "border-orange-100"
+              },
+              {
+                icon: "💡",
+                title: "Make A Difference",
+                desc: "Help students out with their academic goals",
+                bg: "bg-rose-50",
+                border: "border-rose-100"
+              },
+            ].map((benefit, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                whileHover={{ y: -6, boxShadow: "0 20px 40px rgba(0,0,0,0.08)" }}
+                className={`bg-white rounded-3xl p-8 text-center border ${benefit.border} shadow-sm transition-all duration-300`}
+              >
+                <div className={`w-20 h-20 ${benefit.bg} rounded-2xl flex items-center justify-center text-4xl mx-auto mb-6`}>
+                  {benefit.icon}
+                </div>
+                <h3 className="font-bold text-gray-900 text-lg mb-3">{benefit.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{benefit.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
