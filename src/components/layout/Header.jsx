@@ -50,7 +50,6 @@ const navItems = [
     dropdown: [
       { name: 'Success Stories', path: '/success-stories' },
       { name: 'Blog', path: '/blog' },
-      { name: 'Resources', path: '/resources' },
     ],
   },
   { name: 'Become A Mentor', path: '/become-mentor' },
