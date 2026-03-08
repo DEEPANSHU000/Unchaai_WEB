@@ -1,161 +1,179 @@
 import { motion } from 'framer-motion';
-import { FaPlay } from 'react-icons/fa';
+import { FaPlay, FaStar, FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } }
+};
 
 const Hero = ({ onBookTrialClick }) => {
   const handleWatchDemo = () => {
-  window.open(
-    "https://youtu.be/mF92uCHWpio?si=s-yqqgppdvnR8HCi",
-    "_blank"
-  );
-};
-  return (
-    <section className="relative bg-gradient-to-br from-cream-50 via-white to-primary-50 pt-32 pb-20 overflow-hidden">
-      {/* Background Decorations */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 right-10 w-72 h-72 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-secondary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-      </div>
+    window.open('https://youtu.be/mF92uCHWpio?si=s-yqqgppdvnR8HCi', '_blank');
+  };
 
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center space-x-2 bg-white border border-primary-200 rounded-full px-4 py-2 mb-6 shadow-sm"
-            >
-              <span className="w-2 h-2 bg-primary-500 rounded-full animate-pulse"></span>
-              <span className="text-sm font-semibold text-gray-700">
-                5+ Years of Academic Excellence (Estd. 2019)
-              </span>
+  return (
+    <section className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-950 via-gray-900 to-primary-950 overflow-hidden pt-8">
+
+      {/* ── decorative blobs ── */}
+      <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary-600 rounded-full blur-[160px] opacity-15 translate-x-1/3 -translate-y-1/4 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orange-600 rounded-full blur-[140px] opacity-10 -translate-x-1/4 translate-y-1/4 pointer-events-none" />
+
+      {/* ── subtle grid ── */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
+
+      <div className="container-custom relative z-10 py-20 lg:py-28">
+        <div className="grid lg:grid-cols-2 gap-14 items-center">
+
+          {/* ── Left ── */}
+          <motion.div initial="hidden" animate="visible" variants={stagger}>
+
+            {/* Live badge */}
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-sm font-semibold px-4 py-2 rounded-full mb-7 backdrop-blur-sm">
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              5+ Years of Academic Excellence — Est. 2019
             </motion.div>
 
-            {/* Main Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 leading-tight mb-6"
-            >
+            {/* Heading */}
+            <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               Unlock Your Potential with{' '}
-              <span className="heading-gradient">
-                IITians/NEET Rankers
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-orange-400 to-primary-300">
+                IITians & NEET Rankers
               </span>{' '}
               as Your Personal Mentors
             </motion.h1>
 
-            {/* Subheading */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed"
-            >
-              We offer truly personalized 1-1 learning experiences for your academic success. 
-              UnchaAi helped students from 6th to 12th Class to excel in JEE, NEET, Olympiads, NTSE, Boards and School Exams.
+            {/* Sub */}
+            <motion.p variants={fadeUp} className="text-white/70 text-lg md:text-xl mb-8 leading-relaxed">
+              Truly personalized 1-on-1 learning for Classes 6–12. Ace JEE, NEET, Olympiads, NTSE, Boards — guided by the toppers who've been there.
             </motion.p>
 
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <button onClick={onBookTrialClick} className="btn-primary text-lg px-8 py-4">
-                Book Free Trial Class
-              </button>
-              <button onClick={handleWatchDemo} className="btn-outline text-lg px-8 py-4 flex items-center justify-center gap-2">
-                <FaPlay className="text-sm" />
-                Watch Demo Class
-              </button>
+            {/* Bullet points */}
+            <motion.div variants={fadeUp} className="flex flex-wrap gap-x-6 gap-y-2 mb-8">
+              {['Free Trial Class', 'IITian/NEET Mentors', '1-on-1 Sessions', 'Flexible Timings'].map((pt, i) => (
+                <div key={i} className="flex items-center gap-2 text-white/80 text-sm font-medium">
+                  <FaCheckCircle className="text-green-400 text-xs shrink-0" />
+                  {pt}
+                </div>
+              ))}
             </motion.div>
 
-            {/* Trust Indicators */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="flex items-center gap-6 mt-8 pt-8 border-t border-gray-200"
-            >
+            {/* CTAs */}
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mb-10">
+              <motion.button
+                whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+                onClick={onBookTrialClick}
+                className="flex items-center justify-center gap-2 bg-gradient-to-r from-primary-500 to-orange-500 hover:from-primary-600 hover:to-orange-600 text-white font-bold px-8 py-4 rounded-full shadow-xl shadow-primary-500/30 text-base transition-all"
+              >
+                Book Free Trial Class
+                <FaArrowRight className="text-sm" />
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+                onClick={handleWatchDemo}
+                className="flex items-center justify-center gap-3 bg-white/10 border border-white/25 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-full backdrop-blur-sm text-base transition-all"
+              >
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                  <FaPlay className="text-xs ml-0.5" />
+                </div>
+                Watch Demo
+              </motion.button>
+            </motion.div>
+
+            {/* Social proof */}
+            <motion.div variants={fadeUp} className="flex items-center gap-5 pt-6 border-t border-white/10">
               <div className="flex -space-x-3">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="w-10 h-10 rounded-full border-2 border-white bg-gray-300 flex items-center justify-center text-xs font-bold text-white"
-                    style={{ 
-                      backgroundImage: `url(https://i.pravatar.cc/40?img=${i})`,
-                      backgroundSize: 'cover'
-                    }}
-                  ></div>
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div key={i} className="w-9 h-9 rounded-full border-2 border-gray-900 bg-gray-600"
+                    style={{ backgroundImage: `url(https://i.pravatar.cc/40?img=${i + 10})`, backgroundSize: 'cover' }} />
                 ))}
               </div>
               <div>
-                <p className="text-sm font-semibold text-gray-900">Trusted by 5000+ Students</p>
-                <div className="flex items-center gap-1">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                    </svg>
-                  ))}
-                  <span className="text-sm text-gray-600 ml-1">(4.9/5)</span>
+                <p className="text-white font-bold text-sm">10,000+ Students Mentored</p>
+                <div className="flex items-center gap-1 mt-0.5">
+                  {[1, 2, 3, 4, 5].map(i => <FaStar key={i} className="text-yellow-400 text-xs" />)}
+                  <span className="text-white/60 text-xs ml-1">4.9/5 Rating</span>
                 </div>
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Image/Illustration */}
+          {/* ── Right — Visual stack ── */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative"
+            initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative hidden lg:block"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            {/* Main image */}
+            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
                 alt="Students learning with mentors"
                 className="w-full h-auto"
               />
-              {/* Floating Stats Cards */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1 }}
-                className="absolute top-6 right-6 bg-white rounded-xl shadow-lg p-4"
-              >
-                <p className="text-3xl font-bold text-primary-500">96%</p>
-                <p className="text-xs text-gray-600">Success Rate</p>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2 }}
-                className="absolute bottom-6 left-6 bg-white rounded-xl shadow-lg p-4"
-              >
-                <p className="text-3xl font-bold text-secondary-500">150+</p>
-                <p className="text-xs text-gray-600">IIT/NEET Mentors</p>
-              </motion.div>
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
             </div>
 
-            {/* Decorative Elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary-500 rounded-full opacity-20 blur-2xl"></div>
-            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary-500 rounded-full opacity-20 blur-2xl"></div>
+            {/* Floating card — top right */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1 }}
+              className="absolute -top-5 -right-5 bg-white rounded-2xl shadow-2xl p-4 flex items-center gap-3"
+            >
+              <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center text-2xl">🏆</div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900">96%</p>
+                <p className="text-xs text-gray-500">Success Rate</p>
+              </div>
+            </motion.div>
+
+            {/* Floating card — bottom left */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2 }}
+              className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-2xl p-4 flex items-center gap-3"
+            >
+              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-2xl">👨‍🏫</div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900">500+</p>
+                <p className="text-xs text-gray-500">IIT/NEET Mentors</p>
+              </div>
+            </motion.div>
+
+            {/* Floating card — mid right */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.4 }}
+              className="absolute top-1/2 -right-8 -translate-y-1/2 bg-gradient-to-br from-primary-500 to-orange-500 text-white rounded-2xl shadow-2xl p-4"
+            >
+              <p className="text-2xl font-bold">10K+</p>
+              <p className="text-xs text-white/80">Students</p>
+            </motion.div>
           </motion.div>
         </div>
+
+        {/* ── Scrolling brand logos / trust row ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9, duration: 0.6 }}
+          className="mt-20 pt-10 border-t border-white/10"
+        >
+          <p className="text-center text-white/40 text-xs font-bold uppercase tracking-widest mb-6">Our Mentors Are From</p>
+          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+            {['IIT Delhi', 'IIT Bombay', 'IIT Roorkee', 'IIT BHU', 'AIIMS Delhi', 'NIT Trichy'].map((inst, i) => (
+              <div key={i} className="bg-white/5 border border-white/10 px-5 py-2 rounded-full">
+                <span className="text-white/60 text-sm font-semibold">{inst}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
-
     </section>
-
   );
 };
 

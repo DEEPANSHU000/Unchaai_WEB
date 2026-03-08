@@ -12,32 +12,34 @@ const iconMap = {
 };
 
 const Stats = () => {
-  const [ref, inView] = useInView({
-    threshold: 0.3,
-    triggerOnce: true
-  });
+  const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
 
   return (
-    <section className="py-16 bg-gradient-to-r from-primary-500 to-secondary-500">
-      <div className="container-custom">
-        <div ref={ref} className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+    <section className="relative py-16 overflow-hidden bg-gray-950">
+      {/* Subtle glow */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary-900/40 via-gray-950 to-orange-900/30 pointer-events-none" />
+
+      <div className="container-custom relative z-10">
+        <div ref={ref} className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
           {statisticsData.map((stat, index) => {
             const Icon = iconMap[stat.icon];
-            
             return (
               <motion.div
                 key={stat.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="text-center text-white"
+                className={`relative text-center text-white py-8 px-4 ${index < statisticsData.length - 1 ? 'lg:border-r border-white/10' : ''}`}
               >
-                <div className="mb-4 flex justify-center">
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                    <Icon className="text-3xl" />
+                {/* Icon */}
+                <div className="flex justify-center mb-4">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary-500/20 to-orange-500/20 border border-white/10 rounded-2xl flex items-center justify-center">
+                    <Icon className="text-2xl text-primary-400" />
                   </div>
                 </div>
-                <h3 className="text-4xl md:text-5xl font-display font-bold mb-2">
+
+                {/* Number */}
+                <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">
                   {inView && (
                     <AnimatedCounter
                       end={stat.number}
@@ -46,7 +48,9 @@ const Stats = () => {
                     />
                   )}
                 </h3>
-                <p className="text-white/90 font-medium">{stat.label}</p>
+
+                {/* Label */}
+                <p className="text-white/60 font-medium text-sm">{stat.label}</p>
               </motion.div>
             );
           })}
