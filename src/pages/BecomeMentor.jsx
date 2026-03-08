@@ -395,14 +395,24 @@ const BecomeMentor = () => {
               Join the UnchaAi community today and start shaping the future of millions of ambitious students across India.
             </p>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setOpen(true)}
-              className="relative z-10 bg-primary-500 text-white font-bold px-10 py-5 rounded-full shadow-xl shadow-primary-500/30 text-lg tracking-wide hover:bg-primary-600 transition-colors"
-            >
-              Apply to be a Mentor
-            </motion.button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-10">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setOpen(true)}
+                className="bg-primary-500 text-white font-bold px-10 py-5 rounded-full shadow-xl shadow-primary-500/30 text-lg tracking-wide hover:bg-primary-600 transition-colors"
+              >
+                Apply to be a Mentor
+              </motion.button>
+              <motion.a
+                href="/contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white/10 border border-white/30 text-white font-bold px-10 py-5 rounded-full text-lg tracking-wide hover:bg-white/20 transition-colors"
+              >
+                Contact Us
+              </motion.a>
+            </div>
           </motion.div>
         </div>
       </section>
