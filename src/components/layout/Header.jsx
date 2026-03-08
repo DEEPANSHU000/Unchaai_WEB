@@ -77,59 +77,55 @@ const MegaMenu = ({ groups, isOpen }) => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 12, scale: 0.97 }}
           transition={{ duration: 0.2 }}
-          className="absolute top-full left-0 mt-3 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden z-50 flex"
-          style={{ minWidth: 520, boxShadow: '0 25px 50px rgba(0,0,0,0.12)' }}
+          className="absolute top-full left-0 mt-3 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50 flex"
+          style={{ minWidth: 420, boxShadow: '0 20px 40px rgba(0,0,0,0.12)' }}
         >
           {/* Left pane — group selector */}
-          <div className="w-44 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-100 p-3">
-            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest px-3 mb-3">Courses</p>
+          <div className="w-36 bg-gray-50 border-r border-gray-100 p-2">
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest px-2 mb-2">Courses</p>
             {groups.map((g) => (
               <button
                 key={g.group}
                 onMouseEnter={() => setActiveGroup(g.group)}
                 onClick={() => setActiveGroup(g.group)}
-                className={`w-full flex items-center gap-3 px-3 py-4 rounded-2xl text-left transition-all ${activeGroup === g.group
-                    ? 'bg-white shadow-md text-primary-600'
-                    : 'text-gray-600 hover:bg-white/70 hover:text-primary-500'
+                className={`w-full flex items-center gap-2 px-3 py-2.5 rounded-xl text-left transition-all ${activeGroup === g.group
+                  ? 'bg-white shadow text-primary-600'
+                  : 'text-gray-600 hover:bg-white/70 hover:text-primary-500'
                   }`}
               >
-                <span className="text-2xl">{g.icon}</span>
-                <div>
-                  <div className="font-bold text-sm">{g.group}</div>
-                  <div className="text-xs text-gray-400 leading-tight mt-0.5">{g.desc}</div>
-                </div>
+                <span className="text-lg">{g.icon}</span>
+                <span className="font-bold text-sm">{g.group}</span>
               </button>
             ))}
-            <div className="mt-4 px-3">
-              <div className="h-px bg-gray-200 mb-3" />
-              <p className="text-xs text-gray-400 leading-relaxed">1-on-1 mentorship from top IITians & doctors</p>
-            </div>
           </div>
 
           {/* Right pane — sub-items */}
-          <div className="flex-1 p-4">
-            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 px-2">{activeGroup} Batches</p>
-            <div className="space-y-1">
+          <div className="flex-1 p-3">
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 px-1">{activeGroup} Batches</p>
+            <div className="space-y-0.5">
               {current?.items.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className="flex items-center gap-4 px-4 py-4 rounded-2xl hover:bg-primary-50 group transition-all"
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-primary-50 group transition-all"
                 >
-                  <div className="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center text-lg group-hover:bg-primary-200 transition-colors shrink-0">
+                  <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center text-sm group-hover:bg-primary-200 transition-colors shrink-0">
                     {item.icon}
                   </div>
-                  <div>
-                    <div className="text-sm font-bold text-gray-900 group-hover:text-primary-600 transition-colors">{item.name}</div>
-                    <div className="text-xs text-gray-400 mt-0.5">{item.desc}</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-sm font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">{item.name}</div>
+                    <div className="text-xs text-gray-400">{item.desc}</div>
                   </div>
-                  <FaChevronRight className="ml-auto text-gray-300 text-xs group-hover:text-primary-400 transition-colors" />
+                  <FaChevronRight className="text-gray-300 text-xs group-hover:text-primary-400 transition-colors shrink-0" />
                 </Link>
               ))}
             </div>
-            <div className="mt-4 mx-2 bg-gradient-to-r from-primary-500 to-orange-500 rounded-2xl p-4 text-white">
-              <div className="text-sm font-bold mb-1">🎯 Book a Free Demo</div>
-              <div className="text-xs text-white/80">Talk to a mentor before enrolling</div>
+            <div className="mt-2 mx-1 bg-gradient-to-r from-primary-500 to-orange-500 rounded-xl px-3 py-2 text-white flex items-center gap-2">
+              <span>🎯</span>
+              <div>
+                <div className="text-xs font-bold">Book a Free Demo</div>
+                <div className="text-xs text-white/75">Talk to a mentor first</div>
+              </div>
             </div>
           </div>
         </motion.div>
