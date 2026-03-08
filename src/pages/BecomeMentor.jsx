@@ -212,49 +212,6 @@ const BecomeMentor = () => {
         </div>
       </section>
 
-      {/* ── FAQS ── */}
-      <section className="py-24 bg-gray-50">
-        <div className="container-custom max-w-4xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Frequently Asked <span className="text-primary-600">Questions</span></h2>
-          </div>
-
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={false}
-                className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden"
-              >
-                <button
-                  onClick={() => toggleFaq(index)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
-                >
-                  <span className="font-bold text-gray-900 text-lg pr-8">{faq.question}</span>
-                  <span className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${activeFaq === index ? 'bg-primary-50 text-primary-600' : 'bg-gray-50 text-gray-400'}`}>
-                    {activeFaq === index ? <FaChevronUp className="text-sm" /> : <FaChevronDown className="text-sm" />}
-                  </span>
-                </button>
-                <AnimatePresence>
-                  {activeFaq === index && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-50 pt-4">
-                        {faq.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── CTA BANNER ── */}
       <section className="py-20 px-4">
         <div className="container-custom max-w-5xl">
@@ -278,6 +235,51 @@ const BecomeMentor = () => {
               Apply to be a Mentor
             </motion.button>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ── FAQS ── */}
+      <section className="py-24 bg-gray-50">
+        <div className="container-custom max-w-4xl">
+          <div className="text-center mb-4">
+            <p className="text-sm font-bold tracking-widest text-gray-400 uppercase mb-3">─── ANSWER YOU NEED TO KNOW ───</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Frequently Asked <span className="text-primary-600">Questions</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">Below are some frequently asked questions by teachers about Unchaai's learning and mentorship programs and their answers because we understand that making a life-changing decision is never easy!</p>
+          </div>
+
+          <div className="space-y-4 mt-12">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={false}
+                className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden"
+              >
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
+                >
+                  <span className="font-bold text-gray-900 text-lg pr-8">{faq.question}</span>
+                  <span className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${activeFaq === index ? 'bg-primary-50 text-primary-600' : 'bg-gray-50 text-gray-400'}`}>
+                    {activeFaq === index ? <FaChevronUp className="text-sm" /> : <FaChevronDown className="text-sm" />}
+                  </span>
+                </button>
+                <AnimatePresence>
+                  {activeFaq === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-50 pt-4 whitespace-pre-line">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
