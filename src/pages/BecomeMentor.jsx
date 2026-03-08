@@ -25,20 +25,32 @@ const BecomeMentor = () => {
 
   const faqs = [
     {
-      question: "What are the eligibility criteria to become a mentor?",
-      answer: "You should be a student or alumni from a top-tier institute (IITs, NITs, AIIMS, top medical colleges) with a strong academic background and a passion for teaching and guiding juniors."
+      question: "1. How do I apply to become a teacher on Unchaai?",
+      answer: "You can easily apply to become a Mentor on Unchaai with these easy steps:\nStep 1: Apply for mentorship\nStep 2: Get a call from our team\nStep 3: Tell your qualifications and showcase your teaching skills\nStep 4: Get shortlisted, followed by a training\nStep 5: Get started with mentorship"
     },
     {
-      question: "How many hours do I need to commit?",
-      answer: "The commitment is completely flexible. You can choose to teach anywhere from 5 hours a week to 30+ hours a week depending on your schedule and availability."
+      question: "2. What are the basic requirements to be a teacher on Unchaai?",
+      answer: "To become a Mentor, you must have studied at an IIT. You must have 2 years of tutoring experience on that subject or have a specialization degree in it to become a tutor."
     },
     {
-      question: "How much can I earn?",
-      answer: "Earnings depend on the number of hours you teach. Our mentors typically earn between ₹15,000 to ₹50,000+ per month working part-time."
+      question: "3. What do I do if I don't have a pen tablet or don't know how to use one?",
+      answer: "Pen-tab is the most efficient way to teach a student online. If you don’t have a pen tab, you have to adapt to alternate ways of teaching.\nFor instance, you can use PowerPoint presentations of concepts to make the students understand topics more efficiently."
     },
     {
-      question: "Will I get training before I start?",
-      answer: "Yes! Every selected mentor goes through a comprehensive onboarding and training program to ensure you are equipped with the best teaching methodologies and technical tools."
+      question: "4. What is the interview process?",
+      answer: "After shortlisting profiles, the interview process consists of two rounds.\n1. Technical Round: Where our team will test your knowledge and experience.\n2. HR Round: Where the HRs will test your soft skills."
+    },
+    {
+      question: "5. How will I get paid?",
+      answer: "You will get paid based on your number of sessions every month."
+    },
+    {
+      question: "6. What do I do if my student doesn't attend the class?",
+      answer: "If a student is absent, you can inform the management team and mark him absent."
+    },
+    {
+      question: "7. Will my information be safe with Unchaai?",
+      answer: "Yes, we keep all your information confidential and protected."
     }
   ];
 
