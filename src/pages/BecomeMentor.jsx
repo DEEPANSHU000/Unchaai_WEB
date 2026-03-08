@@ -170,7 +170,148 @@ const BecomeMentor = () => {
         </div>
       </section>
 
-      {/* ── MENTOR TESTIMONIALS (VIDEOS) ── */}
+      {/* -- IMPACT STATS -- */}
+      <section className="py-16 bg-gradient-to-r from-primary-600 to-orange-500">
+        <div className="container-custom">
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-white text-center"
+          >
+            {[
+              { num: "10,000+", label: "Students Impacted" },
+              { num: "500+", label: "Active Mentors" },
+              { num: "25K+", label: "Avg. Monthly Earnings" },
+              { num: "95%", label: "Mentor Satisfaction Rate" },
+            ].map((stat, i) => (
+              <motion.div key={i} variants={fadeUp}>
+                <div className="text-4xl md:text-5xl font-bold mb-2">{stat.num}</div>
+                <div className="text-white/80 font-medium text-sm uppercase tracking-wider">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* -- HOW IT WORKS -- */}
+      <section className="py-24 bg-white">
+        <div className="container-custom max-w-5xl">
+          <div className="text-center mb-16">
+            <span className="inline-block bg-primary-50 text-primary-600 text-sm font-bold px-4 py-2 rounded-full mb-4 border border-primary-100">SIMPLE PROCESS</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">How It <span className="text-primary-600">Works</span></h2>
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto">Get started as a UnchaAi mentor in just 5 easy steps. Our onboarding is fast, transparent, and completely free.</p>
+          </div>
+
+          <div className="relative">
+            <div className="hidden md:block absolute top-10 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-primary-200 via-primary-400 to-primary-200"></div>
+            <motion.div
+              initial="hidden" whileInView="visible" viewport={{ once: true }}
+              variants={staggerContainer}
+              className="grid md:grid-cols-5 gap-6"
+            >
+              {[
+                { step: "01", icon: "📝", title: "Apply Online", desc: "Fill the quick mentor application form." },
+                { step: "02", icon: "📞", title: "Get a Call", desc: "Our team will call to understand your profile." },
+                { step: "03", icon: "🎓", title: "Demo Session", desc: "Showcase your teaching skills to our evaluators." },
+                { step: "04", icon: "✅", title: "Get Shortlisted", desc: "Pass the evaluation and enter training." },
+                { step: "05", icon: "🚀", title: "Start Teaching", desc: "Begin your sessions and earn every month." },
+              ].map((item, i) => (
+                <motion.div key={i} variants={fadeUp} className="flex flex-col items-center text-center">
+                  <div className="relative mb-6">
+                    <div className="w-20 h-20 bg-primary-50 border-2 border-primary-200 rounded-full flex items-center justify-center text-3xl shadow-sm">
+                      {item.icon}
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-7 h-7 bg-primary-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
+                      {item.step}
+                    </div>
+                  </div>
+                  <h3 className="font-bold text-gray-900 mb-2 text-lg">{item.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* -- BENEFITS DETAILS GRID -- */}
+      <section className="py-24 bg-gray-50">
+        <div className="container-custom max-w-6xl">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+              <span className="inline-block bg-green-50 text-green-600 text-sm font-bold px-4 py-2 rounded-full mb-6 border border-green-100">THE BENEFITS YOU GET</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">Everything you need to <span className="text-primary-600">thrive as a mentor</span></h2>
+              <p className="text-gray-500 text-lg mb-10 leading-relaxed">We handle finding students, payments, and support — so you can focus on what you love: teaching.</p>
+              <div className="grid grid-cols-2 gap-5">
+                {[
+                  { icon: "💸", title: "Easy Payout System", desc: "Simple, transparent payment process." },
+                  { icon: "📅", title: "Weekly Payouts", desc: "Get paid every week, no delays." },
+                  { icon: "🎧", title: "24/7 Tutor Support", desc: "Our team is always here for you." },
+                  { icon: "🏠", title: "Teach From Home", desc: "100% remote, no commute ever." },
+                  { icon: "📜", title: "Enhance Your CV", desc: "Boost your profile with mentorship experience." },
+                  { icon: "💡", title: "Make a Difference", desc: "Change lives of IIT/NEET aspirants." },
+                ].map((b, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="text-2xl shrink-0">{b.icon}</div>
+                    <div>
+                      <div className="font-bold text-gray-900 text-sm mb-1">{b.title}</div>
+                      <div className="text-gray-500 text-xs leading-relaxed">{b.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+              <div className="bg-gradient-to-br from-gray-900 to-primary-900 rounded-[2.5rem] p-10 text-white relative overflow-hidden shadow-2xl">
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+                <div className="relative z-10 space-y-6">
+                  <div className="text-5xl">🎯</div>
+                  <h3 className="text-2xl font-bold">Your earning potential is <span className="text-primary-400">unlimited</span></h3>
+                  <p className="text-white/70 text-sm leading-relaxed">The more sessions you conduct, the more you earn. Many of our top mentors earn over ₹50,000 a month from the comfort of their hostel rooms.</p>
+                  <div className="space-y-3">
+                    {["Flexible 5-30 hrs/week", "Paid for every session", "Weekly bank transfer", "No marketing needed"].map((point, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <FaCheckCircle className="text-green-400 shrink-0" />
+                        <span className="text-white/90 text-sm font-medium">{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* -- MENTOR TEXT TESTIMONIALS -- */}
+      <section className="py-24 bg-white">
+        <div className="container-custom max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">What Mentors <span className="text-primary-600">Say About Us</span></h2>
+            <p className="text-gray-500 text-lg">Real words from real mentors who have transformed their passion into earnings.</p>
+          </div>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="grid md:grid-cols-3 gap-8">
+            {[
+              { quote: "UnchaAi gave me the best platform to monetize my knowledge. I earn ₹30K+ a month while still in college.", name: "Anmol Sharma", college: "IIT Roorkee", emoji: "👨‍🎓" },
+              { quote: "The best part? I don't have to find students. UnchaAi handles it all. I just show up and teach!", name: "Shakshi Verma", college: "DLMP Medical College", emoji: "👩‍⚕️" },
+              { quote: "I never thought teaching could be this rewarding. Weekly payouts and zero hassle — I absolutely love it.", name: "Sanchit Kumar", college: "IIT BHU", emoji: "🎓" },
+            ].map((t, i) => (
+              <motion.div key={i} variants={fadeUp} className="bg-gray-50 rounded-3xl p-8 border border-gray-100 relative overflow-hidden">
+                <div className="text-4xl mb-4">{t.emoji}</div>
+                <p className="text-gray-700 text-base leading-relaxed italic mb-6">"{t.quote}"</p>
+                <div className="border-t border-gray-200 pt-4">
+                  <div className="font-bold text-gray-900">{t.name}</div>
+                  <div className="text-primary-500 text-sm font-medium">{t.college}</div>
+                </div>
+                <div className="absolute top-6 right-8 text-8xl text-primary-50 font-serif leading-none">"</div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* -- MENTOR TESTIMONIALS (VIDEOS) -- */}
       <section className="py-24 bg-white">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
