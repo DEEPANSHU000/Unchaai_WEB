@@ -267,9 +267,11 @@ const Header = ({ onBookTrialClick }) => {
           </nav>
 
           {/* CTA */}
-          <div className="hidden lg:block">
-            <button onClick={onBookTrialClick} className="btn-primary">
-              Book a Free Trial
+          <div className="hidden lg:block relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-primary-600 rounded-full blur opacity-40 group-hover:opacity-100 transition duration-300"></div>
+            <button onClick={onBookTrialClick} className="relative px-6 py-2.5 bg-gradient-to-r from-orange-500 to-primary-500 hover:from-orange-600 hover:to-primary-600 text-white font-bold rounded-full shadow-lg transform transition-all hover:scale-105 active:scale-95 flex items-center gap-2">
+              <span>Book Free Trial</span>
+              <span className="bg-white/20 rounded-full w-6 h-6 flex items-center justify-center text-xs">🚀</span>
             </button>
           </div>
 

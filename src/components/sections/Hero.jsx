@@ -17,12 +17,14 @@ const Hero = ({ onBookTrialClick }) => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-8" style={{ background: 'linear-gradient(135deg, #fff7ed 0%, #ffffff 50%, #fff1e6 100%)' }}>
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-8" style={{ background: 'linear-gradient(135deg, #f97316 0%, #ea580c 40%, #c2410c 100%)' }}>
 
       {/* ── Decorative blobs ── */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-300 rounded-full blur-[140px] opacity-25 translate-x-1/3 -translate-y-1/4 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary-200 rounded-full blur-[120px] opacity-30 -translate-x-1/4 translate-y-1/4 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 w-[300px] h-[300px] bg-orange-200 rounded-full blur-[100px] opacity-20 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-300 rounded-full blur-[140px] opacity-30 translate-x-1/3 -translate-y-1/4 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-yellow-300 rounded-full blur-[120px] opacity-20 -translate-x-1/4 translate-y-1/4 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 w-[300px] h-[300px] bg-red-400 rounded-full blur-[100px] opacity-15 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      {/* Grid overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
 
       <div className="container-custom relative z-10 py-20 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
@@ -31,30 +33,30 @@ const Hero = ({ onBookTrialClick }) => {
           <motion.div initial="hidden" animate="visible" variants={stagger}>
 
             {/* Live badge */}
-            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 bg-orange-100 border border-orange-200 text-orange-700 text-sm font-bold px-4 py-2 rounded-full mb-7">
-              <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 bg-white/20 border border-white/30 text-white text-sm font-bold px-4 py-2 rounded-full mb-7 backdrop-blur-sm">
+              <span className="w-2 h-2 bg-yellow-300 rounded-full animate-pulse" />
               5+ Years of Academic Excellence — Est. 2019
             </motion.div>
 
             {/* Heading */}
-            <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+            <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               Unlock Your Potential with{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-primary-600">
+              <span className="text-yellow-200">
                 IITians & NEET Rankers
               </span>{' '}
               as Your Personal Mentors
             </motion.h1>
 
             {/* Sub */}
-            <motion.p variants={fadeUp} className="text-gray-500 text-lg md:text-xl mb-8 leading-relaxed">
+            <motion.p variants={fadeUp} className="text-white/80 text-lg md:text-xl mb-8 leading-relaxed">
               Truly personalized 1-on-1 learning for Classes 6–12. Ace JEE, NEET, Olympiads, NTSE, and Boards — guided by the toppers who've been there.
             </motion.p>
 
             {/* Benefit pills */}
             <motion.div variants={fadeUp} className="flex flex-wrap gap-x-5 gap-y-2 mb-8">
               {['Free Trial Class', 'IITian/NEET Mentors', '1-on-1 Sessions', 'Flexible Timings'].map((pt, i) => (
-                <div key={i} className="flex items-center gap-2 text-gray-700 text-sm font-semibold">
-                  <FaCheckCircle className="text-orange-500 text-xs shrink-0" />
+                <div key={i} className="flex items-center gap-2 text-white text-sm font-semibold">
+                  <FaCheckCircle className="text-yellow-300 text-xs shrink-0" />
                   {pt}
                 </div>
               ))}
@@ -66,7 +68,7 @@ const Hero = ({ onBookTrialClick }) => {
                 whileHover={{ scale: 1.04, boxShadow: '0 20px 40px rgba(249,115,22,0.35)' }}
                 whileTap={{ scale: 0.97 }}
                 onClick={onBookTrialClick}
-                className="flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-primary-500 hover:from-orange-600 hover:to-primary-600 text-white font-bold px-8 py-4 rounded-full shadow-xl text-base transition-all"
+                className="flex items-center justify-center gap-2 bg-white text-orange-600 hover:bg-yellow-50 font-bold px-8 py-4 rounded-full shadow-xl text-base transition-all"
               >
                 Book Free Trial Class
                 <FaArrowRight className="text-sm" />
@@ -75,28 +77,28 @@ const Hero = ({ onBookTrialClick }) => {
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={handleWatchDemo}
-                className="flex items-center justify-center gap-3 bg-white border-2 border-gray-200 hover:border-orange-300 text-gray-800 font-bold px-8 py-4 rounded-full text-base transition-all shadow-sm hover:shadow-md"
+                className="flex items-center justify-center gap-3 bg-white/15 border border-white/30 hover:bg-white/25 text-white font-bold px-8 py-4 rounded-full text-base transition-all backdrop-blur-sm"
               >
-                <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                  <FaPlay className="text-xs text-orange-500 ml-0.5" />
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                  <FaPlay className="text-xs text-white ml-0.5" />
                 </div>
                 Watch Demo
               </motion.button>
             </motion.div>
 
             {/* Social proof */}
-            <motion.div variants={fadeUp} className="flex items-center gap-5 pt-6 border-t border-gray-200">
+            <motion.div variants={fadeUp} className="flex items-center gap-5 pt-6 border-t border-white/20">
               <div className="flex -space-x-3">
                 {[1, 2, 3, 4, 5].map((i) => (
-                  <div key={i} className="w-9 h-9 rounded-full border-2 border-white bg-gray-300"
+                  <div key={i} className="w-9 h-9 rounded-full border-2 border-orange-400 bg-gray-300"
                     style={{ backgroundImage: `url(https://i.pravatar.cc/40?img=${i + 10})`, backgroundSize: 'cover' }} />
                 ))}
               </div>
               <div>
-                <p className="text-gray-900 font-bold text-sm">10,000+ Students Mentored</p>
+                <p className="text-white font-bold text-sm">10,000+ Students Mentored</p>
                 <div className="flex items-center gap-1 mt-0.5">
-                  {[1, 2, 3, 4, 5].map(i => <FaStar key={i} className="text-yellow-400 text-xs" />)}
-                  <span className="text-gray-500 text-xs ml-1">4.9/5 Rating</span>
+                  {[1, 2, 3, 4, 5].map(i => <FaStar key={i} className="text-yellow-300 text-xs" />)}
+                  <span className="text-white/70 text-xs ml-1">4.9/5 Rating</span>
                 </div>
               </div>
             </motion.div>
@@ -159,13 +161,13 @@ const Hero = ({ onBookTrialClick }) => {
         <motion.div
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.6 }}
-          className="mt-20 pt-10 border-t border-gray-200"
+          className="mt-20 pt-10 border-t border-white/20"
         >
-          <p className="text-center text-gray-400 text-xs font-bold uppercase tracking-widest mb-6">Our Mentors Are From</p>
+          <p className="text-center text-white/60 text-xs font-bold uppercase tracking-widest mb-6">Our Mentors Are From</p>
           <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
             {['IIT Delhi', 'IIT Bombay', 'IIT Roorkee', 'IIT BHU', 'AIIMS Delhi', 'NIT Trichy'].map((inst, i) => (
-              <div key={i} className="bg-white border border-orange-100 shadow-sm px-5 py-2 rounded-full">
-                <span className="text-gray-600 text-sm font-semibold">{inst}</span>
+              <div key={i} className="bg-white/15 border border-white/25 backdrop-blur-sm px-5 py-2 rounded-full">
+                <span className="text-white text-sm font-semibold">{inst}</span>
               </div>
             ))}
           </div>
